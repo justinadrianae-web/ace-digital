@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACE — Alianza Colectiva Estudiantil · UG Jurisprudencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --g:#3CAE78;--gl:#5DC995;--gd:#28865C;
+  --dk:#0C1C15;--dk2:#102019;--dk3:#1A3227;
+  --tx:#E8F5EE;--mt:#8ABFA3;
+  --cb:#132A1E;--cb2:#0F2318;
+  --br:rgba(60,174,120,.13);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--dk);color:var(--tx);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:13px 40px;background:rgba(12,28,21,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--br)}
+.nlogo{display:flex;align-items:center;gap:9px;text-decoration:none}
+.nbox{width:32px;height:32px;border-radius:7px;background:var(--g);display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:13px;color:#fff;flex-shrink:0}
+.ntxt{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:13px;color:var(--tx);line-height:1.2}
+.nsub{font-size:10px;color:var(--mt);display:block}
+.nlinks{display:flex;gap:20px;list-style:none}
+.nlinks a{color:var(--mt);text-decoration:none;font-size:12px;transition:color .2s}
+.nlinks a:hover{color:var(--gl)}
+.ncta{background:var(--g);color:#fff;border:none;padding:7px 16px;border-radius:7px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;transition:background .2s}
+.ncta:hover{background:var(--gl)}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hbg span{width:21px;height:2px;background:var(--mt);border-radius:2px}
+.mmenu{display:none;position:fixed;top:59px;left:0;right:0;background:rgba(12,28,21,.97);padding:16px 24px;border-bottom:1px solid var(--br);z-index:199;flex-direction:column;gap:12px}
+.mmenu.open{display:flex}
+.mmenu a{color:var(--mt);text-decoration:none;font-size:14px;padding:5px 0;border-bottom:1px solid var(--br)}
+
+/* ── COMMONS ── */
+section{padding:88px 24px}
+.container{max-width:1100px;margin:0 auto}
+.stag{display:inline-flex;align-items:center;gap:7px;color:var(--g);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px}
+.stag::before{content:'';width:16px;height:1px;background:var(--g)}
+h2.st{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(24px,4vw,40px);font-weight:800;line-height:1.1;letter-spacing:-.7px;margin-bottom:10px}
+.sd{color:var(--mt);font-size:15px;line-height:1.72;max-width:500px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+.hbg2{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(60,174,120,.2) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 85% 80%,rgba(40,134,92,.1) 0%,transparent 60%)}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(60,174,120,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(60,174,120,.04) 1px,transparent 1px);background-size:48px 48px}
+.hcont{position:relative;z-index:1;max-width:780px}
+.hbadge{display:inline-flex;align-items:center;gap:6px;background:rgba(60,174,120,.1);border:1px solid rgba(60,174,120,.28);color:var(--gl);font-size:12px;font-weight:500;padding:6px 14px;border-radius:99px;margin-bottom:26px;animation:fadeUp .6s ease both}
+.hbdot{width:6px;height:6px;background:var(--g);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero h1{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(36px,7vw,72px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;margin-bottom:20px;animation:fadeUp .6s .1s ease both}
+.hero h1 em{font-style:normal;color:var(--g)}
+.hsub{font-size:clamp(14px,2vw,17px);color:var(--mt);line-height:1.75;max-width:520px;margin:0 auto 38px;animation:fadeUp .6s .2s ease both}
+.hbtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;animation:fadeUp .6s .3s ease both}
+.btn{background:var(--g);color:#fff;border:none;padding:12px 24px;border-radius:9px;font-size:14px;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:7px}
+.btn:hover{background:var(--gl);transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--tx);border:1px solid rgba(255,255,255,.14);padding:12px 24px;border-radius:9px;font-size:14px;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .2s;text-decoration:none}
+.btn-o:hover{border-color:var(--g);color:var(--gl)}
+.hstats{display:flex;gap:44px;justify-content:center;margin-top:68px;flex-wrap:wrap;animation:fadeUp .6s .4s ease both}
+.hstat{text-align:center}
+.hstat-n{font-family:'Bricolage Grotesque',sans-serif;font-size:28px;font-weight:800;color:var(--g)}
+.hstat-l{font-size:11px;color:var(--mt);margin-top:3px}
+
+/* ── CARDS BASE ── */
+.card{background:var(--cb);border:1px solid var(--br);border-radius:14px;transition:all .3s}
+.card:hover{border-color:rgba(60,174,120,.3);transform:translateY(-2px)}
+.tag{display:inline-block;background:rgba(60,174,120,.1);color:var(--gl);font-size:11px;padding:3px 10px;border-radius:99px;border:1px solid rgba(60,174,120,.18)}
+
+/* ── HISTORIA ── */
+.hist{background:var(--dk2)}
+.hist-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.hist-text p{color:var(--mt);font-size:14px;line-height:1.8;margin-bottom:14px}
+.hist-q{border-left:3px solid var(--g);padding-left:18px;margin:24px 0;font-size:16px;font-style:italic;color:var(--tx);line-height:1.6}
+.tl{display:flex;flex-direction:column;gap:0}
+.tli{display:flex;gap:14px}
+.tll{display:flex;flex-direction:column;align-items:center}
+.tld{width:12px;height:12px;border-radius:50%;background:var(--g);flex-shrink:0;margin-top:3px;box-shadow:0 0 0 3px rgba(60,174,120,.2)}
+.tlln{width:1px;flex:1;background:rgba(60,174,120,.2);min-height:24px;margin:4px 0}
+.tlb{padding-bottom:24px;flex:1}
+.tly{font-size:10px;font-weight:600;color:var(--g);letter-spacing:.06em;margin-bottom:3px}
+.tlt{font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:600;color:var(--tx);margin-bottom:3px}
+.tld2{font-size:12px;color:var(--mt);line-height:1.55}
+
+/* ── MV ── */
+.mv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:44px}
+.mv-card{background:var(--cb);border:1px solid var(--br);border-radius:14px;padding:24px;transition:all .3s;position:relative;overflow:hidden}
+.mv-card:hover{border-color:rgba(60,174,120,.3);transform:translateY(-2px)}
+.mv-acc{position:absolute;top:0;left:0;right:0;height:3px;background:var(--g);border-radius:14px 14px 0 0}
+.mv-icon{font-size:28px;margin-bottom:14px}
+.mv-card h3{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;margin-bottom:8px}
+.mv-card p{font-size:13px;color:var(--mt);line-height:1.65}
+
+/* ── VALORES ── */
+.val{background:var(--dk2)}
+.val-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:44px}
+.val-card{background:var(--cb);border:1px solid var(--br);border-radius:11px;padding:20px;transition:all .25s;display:flex;align-items:flex-start;gap:12px}
+.val-card:hover{border-color:rgba(60,174,120,.3);background:var(--dk3)}
+.vnum{font-family:'Bricolage Grotesque',sans-serif;font-size:26px;font-weight:800;color:rgba(60,174,120,.18);line-height:1;flex-shrink:0;min-width:30px}
+.vb h4{font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:600;margin-bottom:4px}
+.vb p{font-size:12px;color:var(--mt);line-height:1.55}
+
+/* ── FEATURES ── */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px}
+.fc{background:var(--cb);border:1px solid var(--br);border-radius:14px;padding:24px;transition:all .3s;position:relative;overflow:hidden}
+.fc::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at var(--mx,50%) var(--my,50%),rgba(60,174,120,.07),transparent);opacity:0;transition:opacity .3s}
+.fc:hover{border-color:rgba(60,174,120,.3);transform:translateY(-2px)}
+.fc:hover::after{opacity:1}
+.fc.wide{grid-column:span 2}
+.fi{width:44px;height:44px;border-radius:10px;background:rgba(60,174,120,.12);border:1px solid rgba(60,174,120,.2);display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:14px}
+.fc h3{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:600;margin-bottom:8px}
+.fc p{font-size:13px;color:var(--mt);line-height:1.62}
+.flist{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:6px}
+.flist li{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mt)}
+.flist li::before{content:'✓';color:var(--g);font-size:10px;font-weight:700;flex-shrink:0}
+
+/* ── FORMS ── */
+.frm-section{background:var(--dk2)}
+.frm-wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:48px;align-items:start}
+.frm-info h3{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:700;margin-bottom:12px}
+.frm-info p{font-size:14px;color:var(--mt);line-height:1.7;margin-bottom:20px}
+.frm-perks{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.frm-perk{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--mt)}
+.frm-perk-icon{width:32px;height:32px;border-radius:8px;background:rgba(60,174,120,.1);border:1px solid rgba(60,174,120,.2);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.form-box{background:var(--cb);border:1px solid var(--br);border-radius:16px;padding:28px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg{display:flex;flex-direction:column;gap:5px}
+.fg.full{grid-column:span 2}
+.fg label{font-size:12px;color:var(--mt);font-weight:500}
+.fg input,.fg select,.fg textarea{background:var(--dk2);border:1px solid rgba(60,174,120,.2);border-radius:8px;padding:10px 13px;font-size:13px;color:var(--tx);font-family:'DM Sans',sans-serif;transition:border-color .2s;outline:none;width:100%}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--g)}
+.fg select option{background:var(--dk2)}
+.fg textarea{resize:vertical;min-height:80px}
+.req{color:var(--g)}
+.frm-check{display:flex;align-items:flex-start;gap:9px;margin-top:6px}
+.frm-check input[type=checkbox]{width:16px;height:16px;margin-top:2px;accent-color:var(--g);flex-shrink:0}
+.frm-check label{font-size:12px;color:var(--mt);line-height:1.5}
+.frm-submit{width:100%;margin-top:18px;background:var(--g);color:#fff;border:none;padding:13px;border-radius:9px;font-size:14px;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:all .2s}
+.frm-submit:hover{background:var(--gl);transform:translateY(-1px)}
+.frm-success{display:none;text-align:center;padding:32px 20px}
+.frm-success-icon{font-size:48px;margin-bottom:14px}
+.frm-success h4{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:700;margin-bottom:8px}
+.frm-success p{font-size:13px;color:var(--mt)}
+
+/* ── EVENTOS PROPUESTA ── */
+.eventos-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.evt-form-box{background:var(--cb);border:1px solid var(--br);border-radius:16px;padding:26px}
+.evt-form-box h3{font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:600;margin-bottom:4px}
+.evt-form-box .sub{font-size:12px;color:var(--mt);margin-bottom:20px}
+.evt-admin-box{background:var(--cb);border:1px solid var(--br);border-radius:16px;padding:26px}
+.evt-admin-box h3{font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:600;margin-bottom:4px}
+.evt-admin-box .sub{font-size:12px;color:var(--mt);margin-bottom:16px}
+.evt-card{background:var(--dk2);border:1px solid var(--br);border-radius:10px;padding:14px;margin-bottom:10px;transition:border-color .2s}
+.evt-card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.evt-card-title{font-size:13px;font-weight:600;color:var(--tx)}
+.evt-card-date{font-size:11px;color:var(--mt)}
+.evt-card-meta{font-size:12px;color:var(--mt);margin-bottom:10px}
+.evt-card-actions{display:flex;gap:8px}
+.evt-btn-approve{background:rgba(60,174,120,.15);color:var(--gl);border:1px solid rgba(60,174,120,.3);border-radius:6px;padding:5px 12px;font-size:11px;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .2s}
+.evt-btn-approve:hover{background:var(--g);color:#fff}
+.evt-btn-reject{background:rgba(200,50,50,.1);color:#f08080;border:1px solid rgba(200,50,50,.25);border-radius:6px;padding:5px 12px;font-size:11px;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .2s}
+.evt-btn-reject:hover{background:rgba(200,50,50,.25)}
+.status-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:99px;font-weight:500}
+.sb-pending{background:rgba(250,200,50,.1);color:#fac832;border:1px solid rgba(250,200,50,.25)}
+.sb-approved{background:rgba(60,174,120,.1);color:var(--gl);border:1px solid rgba(60,174,120,.25)}
+.sb-rejected{background:rgba(200,50,50,.1);color:#f08080;border:1px solid rgba(200,50,50,.2)}
+.evt-empty{text-align:center;padding:28px 16px;color:var(--mt);font-size:13px}
+
+/* ── DOCENTES ── */
+.doc{background:var(--dk2)}
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:44px}
+.doc-card{background:var(--cb);border:1px solid var(--br);border-radius:13px;padding:20px;transition:all .28s}
+.doc-card:hover{border-color:rgba(60,174,120,.3);transform:translateY(-2px)}
+.doc-avatar{width:52px;height:52px;border-radius:50%;background:var(--dk3);border:2px solid var(--br);display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:700;color:var(--g);margin-bottom:12px}
+.doc-name{font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:600;margin-bottom:3px}
+.doc-materia{font-size:12px;color:var(--gl);font-weight:500;margin-bottom:10px}
+.doc-horario{display:flex;flex-direction:column;gap:4px}
+.doc-h-row{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--mt);padding:4px 8px;background:rgba(60,174,120,.05);border-radius:5px;border:1px solid rgba(60,174,120,.08)}
+.doc-h-day{font-weight:500;color:var(--tx)}
+.doc-add-btn{margin-top:24px;border:2px dashed rgba(60,174,120,.22);background:transparent;border-radius:12px;padding:20px;display:flex;align-items:center;justify-content:center;gap:8px;color:var(--mt);cursor:pointer;transition:all .2s;font-size:13px;width:100%;font-family:'DM Sans',sans-serif}
+.doc-add-btn:hover{border-color:var(--g);color:var(--gl)}
+
+/* ── REDMUN / INVITADOS ── */
+.redmun-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.rm-box{background:var(--cb);border:1px solid var(--br);border-radius:16px;padding:26px}
+.rm-box h3{font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:600;margin-bottom:4px}
+.rm-box .sub{font-size:12px;color:var(--mt);margin-bottom:18px}
+.rm-event-list{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.rm-event{background:var(--dk2);border:1px solid var(--br);border-radius:9px;padding:12px;cursor:pointer;transition:all .2s;position:relative}
+.rm-event:hover{border-color:rgba(60,174,120,.35)}
+.rm-event.selected{border-color:var(--g);background:rgba(60,174,120,.05)}
+.rm-event-title{font-size:13px;font-weight:600;margin-bottom:3px}
+.rm-event-date{font-size:11px;color:var(--mt)}
+.rm-event-slots{font-size:11px;color:var(--gl);margin-top:4px}
+.rm-check{position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:50%;background:var(--g);display:none;align-items:center;justify-content:center;font-size:10px;color:#fff}
+.rm-event.selected .rm-check{display:flex}
+.rm-req-form{background:var(--dk2);border:1px solid var(--br);border-radius:12px;padding:18px;margin-top:14px}
+.rm-req-form h4{font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:600;margin-bottom:14px}
+.rm-requests{display:flex;flex-direction:column;gap:8px}
+.rm-req-card{background:var(--dk2);border:1px solid var(--br);border-radius:9px;padding:12px}
+.rm-req-org{font-size:11px;color:var(--gl);font-weight:500;margin-bottom:3px}
+.rm-req-evt{font-size:13px;font-weight:600;color:var(--tx);margin-bottom:3px}
+.rm-req-info{font-size:11px;color:var(--mt)}
+
+/* ── INSCRIPCION EVENTO ── */
+.evtreg{background:var(--dk2)}
+.evtreg-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.evtreg-list{display:flex;flex-direction:column;gap:10px}
+.evtreg-event{background:var(--cb);border:1px solid var(--br);border-radius:12px;overflow:hidden;transition:all .25s}
+.evtreg-event:hover{border-color:rgba(60,174,120,.3)}
+.evtreg-head{padding:14px 16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.evtreg-head-info{}
+.evtreg-title{font-size:14px;font-weight:600;margin-bottom:2px}
+.evtreg-date{font-size:11px;color:var(--mt)}
+.evtreg-toggle{width:26px;height:26px;border-radius:50%;background:rgba(60,174,120,.1);border:1px solid rgba(60,174,120,.2);display:flex;align-items:center;justify-content:center;color:var(--g);font-size:12px;transition:transform .3s}
+.evtreg-event.open .evtreg-toggle{transform:rotate(45deg)}
+.evtreg-body{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s}
+.evtreg-event.open .evtreg-body{max-height:600px;padding:0 16px 16px}
+.evtreg-stats{display:flex;gap:16px;margin-bottom:14px}
+.evtreg-stat{font-size:11px;color:var(--mt)}
+.evtreg-stat strong{color:var(--gl);font-size:13px}
+.evtreg-reg-form{}
+.evtreg-reg-form h4{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:600;margin-bottom:12px;color:var(--tx)}
+.evtreg-inline-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+/* ── EQUIPO ── */
+.eqp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;margin-top:44px}
+.eqp-card{background:var(--cb);border:1px solid var(--br);border-radius:13px;padding:22px 16px;text-align:center;transition:all .3s}
+.eqp-card:hover{border-color:rgba(60,174,120,.3);transform:translateY(-3px)}
+.eqp-av{width:66px;height:66px;border-radius:50%;margin:0 auto 12px;background:var(--dk3);border:2px solid var(--br);display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-size:19px;font-weight:700;color:var(--g);position:relative}
+.eqp-online{position:absolute;bottom:2px;right:2px;width:11px;height:11px;background:var(--g);border-radius:50%;border:2px solid var(--cb)}
+.eqp-name{font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:600;margin-bottom:3px}
+.eqp-role{font-size:11px;color:var(--gl);font-weight:500;margin-bottom:6px}
+.eqp-carrera{font-size:11px;color:var(--mt)}
+.eqp-add{border:2px dashed rgba(60,174,120,.22);background:transparent;border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:var(--mt);cursor:pointer;transition:all .25s;min-height:166px;font-family:'DM Sans',sans-serif;font-size:12px}
+.eqp-add:hover{border-color:var(--g);color:var(--gl)}
+
+/* ── CONTACTO ── */
+.contact{background:var(--dk2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.contact-info{}
+.contact-info p{font-size:14px;color:var(--mt);line-height:1.75;margin-bottom:20px}
+.contact-cards{display:flex;flex-direction:column;gap:10px}
+.cc{background:var(--cb);border:1px solid var(--br);border-radius:12px;padding:16px;display:flex;align-items:center;gap:14px;transition:all .25s}
+.cc:hover{border-color:rgba(60,174,120,.3)}
+.cc-av{width:44px;height:44px;border-radius:50%;background:var(--dk3);border:1px solid var(--br);display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:14px;color:var(--g);flex-shrink:0}
+.cc-body{flex:1}
+.cc-name{font-size:13px;font-weight:600;margin-bottom:2px}
+.cc-role{font-size:11px;color:var(--gl);margin-bottom:6px}
+.cc-links{display:flex;gap:8px;flex-wrap:wrap}
+.cc-link{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--mt);text-decoration:none;background:rgba(60,174,120,.07);padding:3px 9px;border-radius:99px;border:1px solid rgba(60,174,120,.15);transition:all .2s}
+.cc-link:hover{color:var(--gl);border-color:rgba(60,174,120,.35)}
+.contact-form-box{background:var(--cb);border:1px solid var(--br);border-radius:16px;padding:26px}
+.contact-form-box h3{font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:600;margin-bottom:4px}
+.contact-form-box .sub{font-size:12px;color:var(--mt);margin-bottom:20px}
+
+/* ── LOGROS ── */
+.logros{background:var(--dk2)}
+.log-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin-top:44px}
+.log-card{background:var(--cb);border:1px solid var(--br);border-radius:13px;overflow:hidden;transition:all .28s}
+.log-card:hover{border-color:rgba(60,174,120,.3);transform:translateY(-2px)}
+.log-img{width:100%;height:170px;background:var(--dk3);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;border-bottom:1px solid var(--br);position:relative}
+.log-img-ph{display:flex;flex-direction:column;align-items:center;gap:6px}
+.log-icon{font-size:32px;opacity:.25}
+.log-hint{font-size:10px;color:var(--mt);opacity:.5}
+.log-badge{position:absolute;top:10px;right:10px;background:var(--g);color:#fff;font-size:9px;font-weight:600;padding:3px 8px;border-radius:99px}
+.log-body{padding:16px}
+.log-meta{font-size:10px;color:var(--g);font-weight:500;margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em}
+.log-body h4{font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:600;margin-bottom:4px}
+.log-body p{font-size:12px;color:var(--mt);line-height:1.55}
+
+/* ── GALERÍA ── */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,190px);gap:9px}
+.gi{background:var(--cb);border:1px solid var(--br);border-radius:11px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:7px;position:relative;overflow:hidden;cursor:pointer;transition:all .28s}
+.gi:hover{border-color:rgba(60,174,120,.3);transform:scale(1.015)}
+.gi.lg{grid-column:span 2;grid-row:span 2}
+.gi.tl{grid-row:span 2}
+.gi-ph-icon{font-size:24px;opacity:.18}
+.gi-ph-txt{font-size:9px;color:var(--mt);opacity:.4;text-align:center}
+.gi-hl{position:absolute;inset:0;background:rgba(60,174,120,.1);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;font-size:11px;color:var(--gl)}
+.gi:hover .gi-hl{opacity:1}
+.gi-n{position:absolute;bottom:7px;right:8px;font-size:9px;color:var(--mt);opacity:.35}
+.gal-note{background:rgba(60,174,120,.06);border:1px solid rgba(60,174,120,.16);border-radius:9px;padding:11px 16px;font-size:12px;color:var(--mt);display:flex;align-items:center;gap:7px;margin-bottom:24px;max-width:540px}
+.gal-note strong{color:var(--gl)}
+
+/* ── ROADMAP ── */
+.rm-sect{background:var(--dk2)}
+.rm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:52px;position:relative}
+.rm-grid::before{content:'';position:absolute;top:25px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,transparent,rgba(60,174,120,.4),rgba(60,174,120,.4),rgba(60,174,120,.4),transparent)}
+.ph{padding:0 18px 0 0}
+.ph-head{display:flex;align-items:center;gap:9px;margin-bottom:18px}
+.ph-num{width:50px;height:50px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:800;border:2px solid}
+.p1 .ph-num{background:rgba(60,174,120,.18);border-color:var(--g);color:var(--g)}
+.p2 .ph-num{background:rgba(60,174,120,.1);border-color:rgba(60,174,120,.45);color:var(--gl)}
+.p3 .ph-num{background:rgba(60,174,120,.07);border-color:rgba(60,174,120,.3);color:var(--mt)}
+.p4 .ph-num{background:rgba(60,174,120,.04);border-color:rgba(60,174,120,.18);color:var(--mt);opacity:.7}
+.ph-wk{font-size:10px;color:var(--mt)}
+.ph h3{font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:600;margin-bottom:10px}
+.ph-items{display:flex;flex-direction:column;gap:6px}
+.ph-item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mt)}
+.ph-dot{width:5px;height:5px;border-radius:50%;background:var(--g);opacity:.5;flex-shrink:0}
+
+/* ── STACK ── */
+.sk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:9px;margin-top:44px}
+.sk-card{background:var(--cb);border:1px solid var(--br);border-radius:11px;padding:16px 12px;text-align:center;transition:all .25s}
+.sk-card:hover{border-color:rgba(60,174,120,.3);transform:translateY(-2px)}
+.sk-icon{font-size:24px;margin-bottom:7px}
+.sk-name{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:600;margin-bottom:2px}
+.sk-role{font-size:10px;color:var(--mt)}
+.sk-free{display:inline-block;margin-top:6px;background:rgba(60,174,120,.1);color:var(--gl);font-size:9px;padding:2px 7px;border-radius:99px;border:1px solid rgba(60,174,120,.18)}
+
+/* ── FAQ ── */
+.faq-sect{background:var(--dk2)}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:44px}
+.faq-item{background:var(--cb);border:1px solid var(--br);border-radius:12px;overflow:hidden;transition:border-color .2s}
+.faq-item:hover{border-color:rgba(60,174,120,.25)}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.faq-qt{font-size:13px;font-weight:500;color:var(--tx)}
+.faq-ar{width:20px;height:20px;border-radius:50%;background:rgba(60,174,120,.1);border:1px solid rgba(60,174,120,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;color:var(--g);transition:transform .3s}
+.faq-item.open .faq-ar{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;padding:0 20px;font-size:12px;color:var(--mt);line-height:1.68}
+.faq-item.open .faq-a{max-height:200px;padding:0 20px 16px}
+
+/* ── CTA ── */
+.cta-sect{text-align:center;padding:90px 24px;border-top:1px solid var(--br);position:relative;overflow:hidden}
+.cta-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(60,174,120,.08),transparent)}
+.cta-sect .container{position:relative;z-index:1}
+.cta-sect h2{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(26px,5vw,44px);font-weight:800;line-height:1.08;letter-spacing:-.8px;margin-bottom:12px}
+.cta-sect p{color:var(--mt);font-size:15px;margin-bottom:30px;max-width:460px;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* ── FOOTER ── */
+footer{background:var(--dk2);border-top:1px solid var(--br);padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.fl{display:flex;align-items:center;gap:9px}
+.flb{width:30px;height:30px;border-radius:6px;background:var(--g);display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:12px;color:#fff}
+.flinks{display:flex;gap:16px;flex-wrap:wrap}
+.flinks a{color:var(--mt);font-size:11px;text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--gl)}
+.fr{font-size:11px;color:rgba(138,191,163,.35);text-align:right}
+.fr span{color:var(--g)}
+
+/* ── WATERMARK ── */
+.watermark{background:var(--dk);border-top:1px solid rgba(60,174,120,.07);padding:14px 40px;display:flex;align-items:center;justify-content:center;gap:8px}
+.wm-text{font-family:'Bricolage Grotesque',sans-serif;font-size:12px;color:rgba(60,174,120,.4);letter-spacing:.04em}
+.wm-text strong{color:rgba(60,174,120,.65)}
+.wm-sep{color:rgba(60,174,120,.2);font-size:12px}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hist-inner,.frm-wrap,.eventos-wrap,.evtreg-wrap,.redmun-wrap,.contact-grid{grid-template-columns:1fr;gap:28px}
+  .mv-grid{grid-template-columns:1fr}
+  .rm-grid{grid-template-columns:1fr 1fr}
+  .rm-grid::before{display:none}
+  .fc.wide{grid-column:span 1}
+  .faq-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}
+  .gi.lg,.gi.tl{grid-column:span 1;grid-row:span 1}
+  .form-grid{grid-template-columns:1fr}
+  .fg.full{grid-column:span 1}
+  .evtreg-inline-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  nav{padding:12px 18px}
+  .nlinks,.ncta{display:none}
+  .hbg{display:flex}
+  footer{flex-direction:column;text-align:center}
+  .flinks{justify-content:center}
+  .rm-grid{grid-template-columns:1fr}
+  .eqp-grid{grid-template-columns:repeat(2,1fr)}
+  .hstats{gap:24px}
+  .watermark{flex-direction:column;gap:4px;padding:14px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="#" class="nlogo">
+    <div class="nbox">ACE</div>
+    <div><span class="ntxt">ACE Digital</span><span class="nsub">Alianza Colectiva Estudiantil</span></div>
+  </a>
+  <ul class="nlinks">
+    <li><a href="#historia">Historia</a></li>
+    <li><a href="#inscripcion">Inscripción</a></li>
+    <li><a href="#eventos">Eventos</a></li>
+    <li><a href="#docentes">Docentes</a></li>
+    <li><a href="#invitados">Invitados</a></li>
+    <li><a href="#equipo">Equipo</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <button class="ncta" onclick="scroll2('inscripcion')">Unirme a ACE</button>
+  <button class="hbg" onclick="document.getElementById('mm').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mmenu" id="mm">
+  <a href="#historia" onclick="closeMenu()">Historia</a>
+  <a href="#inscripcion" onclick="closeMenu()">Inscripción</a>
+  <a href="#eventos" onclick="closeMenu()">Proponer Evento</a>
+  <a href="#docentes" onclick="closeMenu()">Docentes</a>
+  <a href="#invitados" onclick="closeMenu()">Invitados</a>
+  <a href="#equipo" onclick="closeMenu()">Equipo</a>
+  <a href="#contacto" onclick="closeMenu()">Contacto</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hbg2"></div><div class="hgrid"></div>
+  <div class="hcont">
+    <div class="hbadge"><div class="hbdot"></div>Plataforma Digital · Facultad de Jurisprudencia · UG</div>
+    <h1>La voz estudiantil<br>ahora tiene <em>plataforma</em></h1>
+    <p class="hsub">ACE Alianza Colectiva Estudiantil construye su sistema digital propio: eventos, comunicación, votaciones y más — todo en un solo lugar, hecho por y para estudiantes.</p>
+    <div class="hbtns">
+      <a href="#inscripcion" class="btn">Unirme a ACE →</a>
+      <a href="#historia" class="btn-o">Conocer más</a>
+    </div>
+    <div class="hstats">
+      <div class="hstat"><div class="hstat-n">6</div><div class="hstat-l">Módulos digitales</div></div>
+      <div class="hstat"><div class="hstat-n">8</div><div class="hstat-l">Semanas de desarrollo</div></div>
+      <div class="hstat"><div class="hstat-n">$0</div><div class="hstat-l">Costo de operación</div></div>
+      <div class="hstat"><div class="hstat-n">100%</div><div class="hstat-l">Hecho por estudiantes</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HISTORIA ══ -->
+<section id="historia" class="hist">
+  <div class="container">
+    <div class="hist-inner">
+      <div class="hist-text reveal">
+        <div class="stag">Nuestra historia</div>
+        <h2 class="st">Quiénes somos<br>y de dónde venimos</h2>
+        <p>ACE – Alianza Colectiva Estudiantil nació de la iniciativa de un grupo de estudiantes de la Facultad de Jurisprudencia comprometidos con transformar la participación estudiantil desde adentro.</p>
+        <p>Fundada con la convicción de que los estudiantes merecen una representación activa, transparente y moderna, ACE se ha convertido en un espacio de organización, debate y acción colectiva.</p>
+        <blockquote class="hist-q">"No somos solo una organización política, somos una comunidad estudiantil que construye el cambio desde las aulas."</blockquote>
+        <p>Hoy, ACE da un paso más: la transformación digital. Una plataforma propia que centraliza la comunicación, la participación y la información de todos sus miembros.</p>
+      </div>
+      <div class="tl reveal">
+        <div class="stag">Línea de tiempo</div><br>
+        <div class="tli"><div class="tll"><div class="tld"></div><div class="tlln"></div></div>
+          <div class="tlb"><div class="tly">FUNDACIÓN</div><div class="tlt">Nace ACE</div><div class="tld2"><!-- ADMIN: año y descripción --> Un grupo de estudiantes decide organizarse para representar los intereses estudiantiles en Jurisprudencia.</div></div></div>
+        <div class="tli"><div class="tll"><div class="tld"></div><div class="tlln"></div></div>
+          <div class="tlb"><div class="tly">PRIMER LOGRO</div><div class="tlt"><!-- ADMIN: título --></div><div class="tld2"><!-- ADMIN: descripción --></div></div></div>
+        <div class="tli"><div class="tll"><div class="tld"></div><div class="tlln"></div></div>
+          <div class="tlb"><div class="tly">CRECIMIENTO</div><div class="tlt"><!-- ADMIN: título --></div><div class="tld2"><!-- ADMIN: descripción --></div></div></div>
+        <div class="tli"><div class="tll"><div class="tld"></div></div>
+          <div class="tlb"><div class="tly">HOY · 2025</div><div class="tlt">Plataforma Digital ACE</div><div class="tld2">ACE lanza su primera plataforma web propia con calendario, votaciones, correos automáticos y más.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MISIÓN VISIÓN ══ -->
+<section id="mision">
+  <div class="container">
+    <div class="reveal"><div class="stag">Misión · Visión · Propósito</div><h2 class="st">El norte que guía<br>cada decisión</h2></div>
+    <div class="mv-grid">
+      <div class="mv-card reveal"><div class="mv-acc"></div><div class="mv-icon">🎯</div><h3>Misión</h3><p><!-- ADMIN --> Representar activamente a los estudiantes de Jurisprudencia, fomentando su participación, derechos y desarrollo académico dentro de la Universidad de Guayaquil.</p></div>
+      <div class="mv-card reveal"><div class="mv-acc"></div><div class="mv-icon">🔭</div><h3>Visión</h3><p><!-- ADMIN --> Ser la organización estudiantil de referencia de la UG: moderna, transparente, tecnológica y comprometida con el bienestar colectivo.</p></div>
+      <div class="mv-card reveal"><div class="mv-acc"></div><div class="mv-icon">💡</div><h3>Propósito</h3><p><!-- ADMIN --> Transformar la cultura de participación estudiantil: demostrar que organizarse, comunicarse y decidir juntos es posible y necesario.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VALORES ══ -->
+<section id="valores" class="val">
+  <div class="container">
+    <div class="reveal"><div class="stag">Valores</div><h2 class="st">Lo que nos define<br>como colectivo</h2></div>
+    <div class="val-grid">
+      <div class="val-card reveal"><div class="vnum">01</div><div class="vb"><h4>Transparencia</h4><p>Todo lo que hacemos es visible. Sin agendas ocultas ni decisiones a puertas cerradas.</p></div></div>
+      <div class="val-card reveal"><div class="vnum">02</div><div class="vb"><h4>Participación</h4><p>Cada estudiante tiene voz. Fomentamos la inclusión activa en todas nuestras decisiones.</p></div></div>
+      <div class="val-card reveal"><div class="vnum">03</div><div class="vb"><h4>Compromiso</h4><p>Cumplimos lo que prometemos. El compromiso con la comunidad estudiantil es nuestra prioridad.</p></div></div>
+      <div class="val-card reveal"><div class="vnum">04</div><div class="vb"><h4>Innovación</h4><p>Usamos tecnología y nuevas ideas para mejorar la experiencia estudiantil.</p></div></div>
+      <div class="val-card reveal"><div class="vnum">05</div><div class="vb"><h4>Unidad</h4><p>La fuerza colectiva supera a la individual. Trabajamos juntos sin importar diferencias.</p></div></div>
+      <div class="val-card reveal"><div class="vnum">06</div><div class="vb"><h4>Respeto</h4><p>Reconocemos la diversidad y garantizamos un ambiente seguro para todos.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FUNCIONES ══ -->
+<section id="funciones">
+  <div class="container">
+    <div class="reveal"><div class="stag">Plataforma digital</div><h2 class="st">Todo lo que ACE necesita<br>en un solo lugar</h2><p class="sd">Seis módulos diseñados para resolver problemas reales de la organización.</p></div>
+    <div class="feat-grid" style="margin-top:44px">
+      <div class="fc reveal"><div class="fi">📅</div><h3>Calendario de eventos</h3><p>Todos los eventos en un calendario público. Miembros reciben alertas automáticas antes de cada actividad.</p><span class="tag">Público + privado</span></div>
+      <div class="fc reveal"><div class="fi">✉️</div><h3>Correos automáticos</h3><p>Bienvenida al registrarse, recordatorios 24h antes de eventos y newsletters periódicos. Cero esfuerzo manual.</p><span class="tag">300/día gratis</span></div>
+      <div class="fc reveal"><div class="fi">🗳️</div><h3>Votaciones estudiantiles</h3><p>Sistema seguro de votaciones internas. Cada miembro vota una sola vez con su correo institucional.</p><span class="tag">Voto único seguro</span></div>
+      <div class="fc wide reveal">
+        <div style="display:flex;gap:28px;flex-wrap:wrap">
+          <div style="flex:1;min-width:200px"><div class="fi">⚙️</div><h3>Panel de administración</h3><p>Los directivos publican noticias, crean eventos, envían comunicados y gestionan miembros sin tocar código.</p><span class="tag">Solo directivos</span></div>
+          <div style="flex:1;min-width:200px"><ul class="flist" style="margin-top:0">
+            <li>Publicaciones con imágenes</li><li>Programar eventos</li><li>Correos masivos</li>
+            <li>Aprobar/rechazar miembros</li><li>Gestionar roles</li><li>Aprobar eventos propuestos</li></ul></div>
+        </div>
+      </div>
+      <div class="fc reveal"><div class="fi">📊</div><h3>Dashboard de métricas</h3><p>Visualiza crecimiento: miembros, eventos realizados, asistencia y participación. Ideal para informes.</p><span class="tag">Tiempo real</span></div>
+      <div class="fc reveal"><div class="fi">👥</div><h3>Registro de miembros</h3><p>Formulario inteligente que guarda datos en la base de datos y envía correo de bienvenida automáticamente.</p><span class="tag">BD integrada</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FORMULARIO DE INSCRIPCIÓN ══ -->
+<section id="inscripcion" class="frm-section">
+  <div class="container">
+    <div class="frm-wrap">
+      <div class="frm-info reveal">
+        <div class="stag">Únete a ACE</div>
+        <h2 class="st">Forma parte de<br>la Alianza</h2>
+        <p>Completa el formulario y sé parte de la comunidad estudiantil más activa de la Facultad de Jurisprudencia.</p>
+        <div class="frm-perks">
+          <div class="frm-perk"><div class="frm-perk-icon">📅</div>Acceso al calendario exclusivo de eventos</div>
+          <div class="frm-perk"><div class="frm-perk-icon">✉️</div>Correo de bienvenida y notificaciones automáticas</div>
+          <div class="frm-perk"><div class="frm-perk-icon">🗳️</div>Derecho a votar en decisiones de ACE</div>
+          <div class="frm-perk"><div class="frm-perk-icon">🎓</div>Participación en todos los programas y actividades</div>
+          <div class="frm-perk"><div class="frm-perk-icon">🤝</div>Red de contactos estudiantiles y docentes</div>
+        </div>
+      </div>
+      <div class="form-box reveal">
+        <div id="reg-form-content">
+          <div class="form-grid">
+            <div class="fg full"><label>Nombres completos <span class="req">*</span></label><input type="text" placeholder="Ej: Juan Carlos Pérez Mendoza" id="r-nombre"></div>
+            <div class="fg"><label>Cédula de identidad <span class="req">*</span></label><input type="text" placeholder="0912345678" id="r-cedula" maxlength="10"></div>
+            <div class="fg"><label>Fecha de nacimiento <span class="req">*</span></label><input type="date" id="r-fecha"></div>
+            <div class="fg"><label>Correo electrónico <span class="req">*</span></label><input type="email" placeholder="tu@ug.edu.ec" id="r-correo"></div>
+            <div class="fg"><label>Número de celular <span class="req">*</span></label><input type="tel" placeholder="0991234567" id="r-celular"></div>
+            <div class="fg full"><label>Facultad <span class="req">*</span></label>
+              <select id="r-facultad">
+                <option value="">Seleccionar facultad...</option>
+                <option>Jurisprudencia y Ciencias Sociales</option>
+                <option>Ciencias Económicas</option>
+                <option>Ciencias Matemáticas y Físicas</option>
+                <option>Comunicación Social</option>
+                <option>Filosofía, Letras y Ciencias de la Educación</option>
+                <option>Ciencias Médicas</option>
+                <option>Ciencias Naturales</option>
+                <option>Otra</option>
+              </select>
+            </div>
+            <div class="fg"><label>Carrera <span class="req">*</span></label>
+              <select id="r-carrera">
+                <option value="">Seleccionar...</option>
+                <option>Derecho</option>
+                <option>Sociología</option>
+                <option>Trabajo Social</option>
+                <option>Ciencias Políticas</option>
+              </select>
+            </div>
+            <div class="fg"><label>Semestre actual <span class="req">*</span></label>
+              <select id="r-semestre">
+                <option value="">Seleccionar...</option>
+                <option>1° Semestre</option><option>2° Semestre</option><option>3° Semestre</option>
+                <option>4° Semestre</option><option>5° Semestre</option><option>6° Semestre</option>
+                <option>7° Semestre</option><option>8° Semestre</option><option>9° Semestre</option><option>10° Semestre</option>
+              </select>
+            </div>
+            <div class="fg"><label>Ciudad de residencia</label><input type="text" placeholder="Guayaquil" id="r-ciudad"></div>
+            <div class="fg"><label>¿Cómo conociste ACE?</label>
+              <select id="r-como">
+                <option value="">Seleccionar...</option>
+                <option>Redes sociales</option><option>Un compañero</option>
+                <option>Evento en la facultad</option><option>Otro</option>
+              </select>
+            </div>
+            <div class="fg full"><label>¿Por qué quieres unirte a ACE? <span class="req">*</span></label><textarea placeholder="Cuéntanos tu motivación para ser parte de la Alianza..." id="r-motivo"></textarea></div>
+            <div class="fg full"><label>Habilidades o áreas de interés</label>
+              <select id="r-habilidad">
+                <option value="">Seleccionar...</option>
+                <option>Diseño gráfico</option><option>Programación / Tecnología</option>
+                <option>Comunicación / Redacción</option><option>Organización de eventos</option>
+                <option>Liderazgo / Gestión</option><option>Fotografía / Video</option>
+                <option>Otra</option>
+              </select>
+            </div>
+          </div>
+          <div class="frm-check" style="margin-top:14px">
+            <input type="checkbox" id="r-terms">
+            <label for="r-terms">Acepto que mis datos sean almacenados por ACE para comunicaciones internas. Nunca serán compartidos con terceros.</label>
+          </div>
+          <button class="frm-submit" onclick="submitReg()">Enviar solicitud de membresía →</button>
+        </div>
+        <div class="frm-success" id="reg-success">
+          <div class="frm-success-icon">🎉</div>
+          <h4>¡Solicitud enviada!</h4>
+          <p>Gracias por unirte a ACE. Recibirás un correo de confirmación en breve. El equipo directivo revisará tu solicitud y te contactará pronto.</p>
+          <br>
+          <a href="#eventos" class="btn" style="display:inline-flex">Ver próximos eventos →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROPONER EVENTOS ══ -->
+<section id="eventos">
+  <div class="container">
+    <div class="reveal"><div class="stag">Gestión de eventos</div><h2 class="st">Propone y aprueba<br>eventos de ACE</h2><p class="sd">Cualquier miembro puede proponer un evento. El admin lo revisa antes de publicarlo al calendario.</p></div>
+    <div class="eventos-wrap" style="margin-top:44px">
+      <div class="evt-form-box reveal">
+        <h3>Proponer un evento</h3>
+        <p class="sub">Completa el formulario — el equipo directivo lo revisará y te notificará.</p>
+        <div id="evt-form-fields">
+          <div class="fg" style="margin-bottom:12px"><label>Nombre del evento <span class="req">*</span></label><input type="text" placeholder="Ej: Taller de Oratoria Jurídica" id="e-nombre"></div>
+          <div class="fg" style="margin-bottom:12px"><label>Tipo de evento</label>
+            <select id="e-tipo"><option>Académico</option><option>Cultural</option><option>Deportivo</option><option>Social</option><option>Informativo</option></select></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+            <div class="fg"><label>Fecha propuesta <span class="req">*</span></label><input type="date" id="e-fecha"></div>
+            <div class="fg"><label>Hora</label><input type="time" id="e-hora" value="14:00"></div>
+          </div>
+          <div class="fg" style="margin-bottom:12px"><label>Lugar / modalidad</label><input type="text" placeholder="Ej: Aula Magna Jurisprudencia" id="e-lugar"></div>
+          <div class="fg" style="margin-bottom:12px"><label>Descripción del evento <span class="req">*</span></label><textarea placeholder="¿De qué trata? ¿A quién va dirigido? ¿Qué necesitas?" id="e-desc" style="min-height:80px"></textarea></div>
+          <div class="fg" style="margin-bottom:12px"><label>Tu nombre</label><input type="text" placeholder="Nombre del proponente" id="e-autor"></div>
+          <div class="frm-check"><input type="checkbox" id="e-inscrip"><label for="e-inscrip">Este evento necesita formulario de inscripción para los asistentes</label></div>
+          <button class="frm-submit" style="margin-top:14px" onclick="propEvent()">Enviar propuesta de evento →</button>
+        </div>
+        <div class="frm-success" id="evt-success">
+          <div class="frm-success-icon">📋</div>
+          <h4>¡Propuesta enviada!</h4>
+          <p>El equipo directivo de ACE revisará tu propuesta. Si es aprobada, aparecerá en el calendario público y recibirás una notificación.</p>
+          <br><button class="btn" onclick="document.getElementById('evt-success').style.display='none';document.getElementById('evt-form-fields').style.display='block'">Proponer otro evento</button>
+        </div>
+      </div>
+      <div class="evt-admin-box reveal">
+        <h3>Panel del administrador</h3>
+        <p class="sub">Eventos pendientes de aprobación — solo visible para directivos.</p>
+        <div id="pending-events">
+          <div class="evt-card" id="ec1">
+            <div class="evt-card-header">
+              <div><div class="evt-card-title">Charla: Derechos Constitucionales 2025</div><div class="evt-card-date">📅 15 mayo 2025 · 15:00 · Aula Magna</div></div>
+              <span class="status-badge sb-pending">Pendiente</span>
+            </div>
+            <div class="evt-card-meta">Propuesto por: María José Torres · Tipo: Académico</div>
+            <div class="evt-card-actions">
+              <button class="evt-btn-approve" onclick="approveEvt('ec1','Charla: Derechos Constitucionales')">✓ Aprobar</button>
+              <button class="evt-btn-reject" onclick="rejectEvt('ec1')">✗ Rechazar</button>
+            </div>
+          </div>
+          <div class="evt-card" id="ec2">
+            <div class="evt-card-header">
+              <div><div class="evt-card-title">Torneo de Debate Jurídico Interfacultades</div><div class="evt-card-date">📅 22 mayo 2025 · 09:00 · Salón de Actos</div></div>
+              <span class="status-badge sb-pending">Pendiente</span>
+            </div>
+            <div class="evt-card-meta">Propuesto por: Carlos Aguirre · Tipo: Académico</div>
+            <div class="evt-card-actions">
+              <button class="evt-btn-approve" onclick="approveEvt('ec2','Torneo de Debate Jurídico')">✓ Aprobar</button>
+              <button class="evt-btn-reject" onclick="rejectEvt('ec2')">✗ Rechazar</button>
+            </div>
+          </div>
+          <div class="evt-card" id="ec3">
+            <div class="evt-card-header">
+              <div><div class="evt-card-title">Cine Foro: Crímenes de Estado</div><div class="evt-card-date">📅 28 mayo 2025 · 17:00 · Biblioteca UG</div></div>
+              <span class="status-badge sb-pending">Pendiente</span>
+            </div>
+            <div class="evt-card-meta">Propuesto por: Andrea Loor · Tipo: Cultural</div>
+            <div class="evt-card-actions">
+              <button class="evt-btn-approve" onclick="approveEvt('ec3','Cine Foro')">✓ Aprobar</button>
+              <button class="evt-btn-reject" onclick="rejectEvt('ec3')">✗ Rechazar</button>
+            </div>
+          </div>
+        </div>
+        <div id="approved-section" style="margin-top:16px;display:none">
+          <p style="font-size:12px;color:var(--g);font-weight:500;margin-bottom:8px">✓ Eventos aprobados y agregados al calendario:</p>
+          <div id="approved-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INSCRIPCIÓN A EVENTOS ══ -->
+<section id="inscripciones" class="evtreg">
+  <div class="container">
+    <div class="reveal"><div class="stag">Inscripción a eventos</div><h2 class="st">Regístrate en los<br>próximos eventos</h2><p class="sd">Cada evento tiene su propio formulario de inscripción. El admin activa el forms para cada actividad.</p></div>
+    <div class="evtreg-wrap" style="margin-top:44px">
+      <div class="evtreg-list reveal">
+        <div class="evtreg-event open" id="evr1">
+          <div class="evtreg-head" onclick="toggleEvtReg('evr1')">
+            <div class="evtreg-head-info"><div class="evtreg-title">Charla: Derechos Constitucionales 2025</div><div class="evtreg-date">📅 15 mayo 2025 · 15:00 · Aula Magna</div></div>
+            <div class="evtreg-toggle">+</div>
+          </div>
+          <div class="evtreg-body">
+            <div class="evtreg-stats">
+              <div class="evtreg-stat">Inscritos: <strong id="cnt-evr1">12</strong></div>
+              <div class="evtreg-stat">Cupos: <strong>50</strong></div>
+              <div class="evtreg-stat"><span class="tag" style="font-size:10px;padding:2px 8px">Inscripciones abiertas</span></div>
+            </div>
+            <div class="evtreg-reg-form">
+              <h4>Formulario de inscripción</h4>
+              <div class="evtreg-inline-grid" style="gap:9px">
+                <div class="fg"><label>Nombres completos</label><input type="text" placeholder="Tu nombre" id="ei1-nombre"></div>
+                <div class="fg"><label>Correo</label><input type="email" placeholder="tu@ug.edu.ec" id="ei1-correo"></div>
+                <div class="fg"><label>Carrera</label><select id="ei1-carrera"><option>Derecho</option><option>Sociología</option><option>Trabajo Social</option></select></div>
+                <div class="fg"><label>Semestre</label><select id="ei1-sem"><option>1°</option><option>2°</option><option>3°</option><option>4°</option><option>5°</option><option>6°</option><option>7°</option><option>8°</option></select></div>
+              </div>
+              <button class="frm-submit" style="margin-top:10px;padding:10px" onclick="registerEvent('evr1','cnt-evr1',12)">Inscribirme al evento →</button>
+            </div>
+          </div>
+        </div>
+        <div class="evtreg-event" id="evr2">
+          <div class="evtreg-head" onclick="toggleEvtReg('evr2')">
+            <div class="evtreg-head-info"><div class="evtreg-title">Torneo de Debate Jurídico</div><div class="evtreg-date">📅 22 mayo 2025 · 09:00 · Salón de Actos</div></div>
+            <div class="evtreg-toggle">+</div>
+          </div>
+          <div class="evtreg-body">
+            <div class="evtreg-stats">
+              <div class="evtreg-stat">Inscritos: <strong id="cnt-evr2">8</strong></div>
+              <div class="evtreg-stat">Cupos: <strong>30</strong></div>
+              <div class="evtreg-stat"><span class="tag" style="font-size:10px;padding:2px 8px">Inscripciones abiertas</span></div>
+            </div>
+            <div class="evtreg-reg-form">
+              <h4>Formulario de inscripción</h4>
+              <div class="evtreg-inline-grid" style="gap:9px">
+                <div class="fg"><label>Nombres completos</label><input type="text" id="ei2-nombre" placeholder="Tu nombre"></div>
+                <div class="fg"><label>Correo</label><input type="email" id="ei2-correo" placeholder="tu@ug.edu.ec"></div>
+                <div class="fg"><label>Modalidad</label><select><option>Individual</option><option>En equipo (3 personas)</option></select></div>
+                <div class="fg"><label>Semestre</label><select><option>1°</option><option>2°</option><option>3°</option><option>4°</option><option>5°</option><option>6°</option></select></div>
+              </div>
+              <button class="frm-submit" style="margin-top:10px;padding:10px" onclick="registerEvent('evr2','cnt-evr2',8)">Inscribirme al evento →</button>
+            </div>
+          </div>
+        </div>
+        <div class="evtreg-event" id="evr3">
+          <div class="evtreg-head" onclick="toggleEvtReg('evr3')">
+            <div class="evtreg-head-info"><div class="evtreg-title"><!-- ADMIN: Próximo evento --></div><div class="evtreg-date"><!-- ADMIN: Fecha y lugar --></div></div>
+            <div class="evtreg-toggle">+</div>
+          </div>
+          <div class="evtreg-body">
+            <p style="font-size:12px;color:var(--mt);padding:4px 0"><!-- ADMIN: Activa inscripciones cuando el evento sea aprobado --></p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="background:var(--cb);border:1px solid var(--br);border-radius:14px;padding:24px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:600;margin-bottom:6px">Para administradores</h3>
+        <p style="font-size:12px;color:var(--mt);margin-bottom:18px;line-height:1.65">Desde el panel admin puedes activar o desactivar el formulario de inscripción de cada evento, ver la lista de inscritos y exportarla.</p>
+        <ul class="flist">
+          <li>Activar/desactivar inscripciones por evento</li>
+          <li>Ver lista completa de inscritos</li>
+          <li>Exportar lista a Excel o PDF</li>
+          <li>Limitar cupos por evento</li>
+          <li>Enviar recordatorio a inscritos</li>
+          <li>Marcar asistencia el día del evento</li>
+        </ul>
+        <div style="margin-top:18px;background:rgba(60,174,120,.06);border:1px solid rgba(60,174,120,.15);border-radius:9px;padding:14px;font-size:12px;color:var(--mt)">
+          ℹ️ Cuando la plataforma real esté lista, esta sección conectará directamente con la base de datos de Supabase.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DOCENTES ══ -->
+<section id="docentes" class="doc">
+  <div class="container">
+    <div class="reveal"><div class="stag">Cuerpo docente</div><h2 class="st">Docentes de la Facultad<br>de Jurisprudencia</h2><p class="sd">Consulta los docentes por materia y sus horarios de clases y tutorías.</p></div>
+    <div class="doc-grid">
+
+      <div class="doc-card reveal">
+        <div class="doc-avatar"><!-- ADMIN: iniciales --></div>
+        <div class="doc-name"><!-- ADMIN: Dr/a. Nombre Apellido --></div>
+        <div class="doc-materia"><!-- ADMIN: Derecho Constitucional --></div>
+        <div class="doc-horario">
+          <div class="doc-h-row"><span class="doc-h-day"><!-- ADMIN: Lunes --></span><span><!-- ADMIN: 08:00–10:00 --></span></div>
+          <div class="doc-h-row"><span class="doc-h-day"><!-- ADMIN: Miércoles --></span><span><!-- ADMIN: 08:00–10:00 --></span></div>
+        </div>
+      </div>
+
+      <div class="doc-card reveal">
+        <div class="doc-avatar"></div>
+        <div class="doc-name"><!-- ADMIN --></div>
+        <div class="doc-materia"><!-- ADMIN: Derecho Civil --></div>
+        <div class="doc-horario">
+          <div class="doc-h-row"><span class="doc-h-day"><!-- ADMIN --></span><span><!-- ADMIN --></span></div>
+          <div class="doc-h-row"><span class="doc-h-day"><!-- ADMIN --></span><span><!-- ADMIN --></span></div>
+        </div>
+      </div>
+
+      <div class="doc-card reveal">
+        <div class="doc-avatar"></div>
+        <div class="doc-name"><!-- ADMIN --></div>
+        <div class="doc-materia"><!-- ADMIN: Derecho Penal --></div>
+        <div class="doc-horario">
+          <div class="doc-h-row"><span class="doc-h-day"><!-- ADMIN --></span><span><!-- ADMIN --></span></div>
+          <div class="doc-h-row"><span class="doc-h-day"><!-- ADMIN --></span><span><!-- ADMIN --></span></div>
+        </div>
+      </div>
+
+      <div class="doc-card reveal">
+        <div class="doc-avatar"></div>
+        <div class="doc-name"><!-- ADMIN --></div>
+        <div class="doc-materia"><!-- ADMIN: Derecho Internacional --></div>
+        <div class="doc-horario">
+          <div class="doc-h-row"><span class="doc-h-day"><!-- ADMIN --></span><span><!-- ADMIN --></span></div>
+        </div>
+      </div>
+
+      <button class="doc-add-btn reveal" onclick="alert('Función disponible en la plataforma completa con acceso de administrador.')">
+        <span style="font-size:20px;opacity:.4">＋</span> Agregar docente
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ REDMUN / INVITADOS EXTERNOS ══ -->
+<section id="invitados">
+  <div class="container">
+    <div class="reveal"><div class="stag">Invitados externos</div><h2 class="st">Portal para organizaciones<br>y delegaciones externas</h2><p class="sd">Organizaciones como REDMUN, delegaciones universitarias y colectivos externos pueden ver los eventos disponibles de ACE y solicitar una invitación o colaboración.</p></div>
+    <div class="redmun-wrap" style="margin-top:44px">
+      <div class="rm-box reveal">
+        <h3>Eventos disponibles</h3>
+        <p class="sub">Selecciona un evento de ACE en el que quieras participar o al que desees invitarnos.</p>
+        <div class="rm-event-list">
+          <div class="rm-event" onclick="selectRmEvent(this,'Charla Derechos Constitucionales','15 mayo · 15:00')">
+            <div class="rm-check">✓</div>
+            <div class="rm-event-title">Charla: Derechos Constitucionales 2025</div>
+            <div class="rm-event-date">📅 15 mayo 2025 · Aula Magna UG</div>
+            <div class="rm-event-slots">Cupos para delegaciones: disponibles</div>
+          </div>
+          <div class="rm-event" onclick="selectRmEvent(this,'Torneo de Debate Jurídico','22 mayo · 09:00')">
+            <div class="rm-check">✓</div>
+            <div class="rm-event-title">Torneo de Debate Jurídico Interfacultades</div>
+            <div class="rm-event-date">📅 22 mayo 2025 · Salón de Actos UG</div>
+            <div class="rm-event-slots">Cupos para delegaciones: disponibles</div>
+          </div>
+          <div class="rm-event" onclick="selectRmEvent(this,'Cine Foro','28 mayo · 17:00')">
+            <div class="rm-check">✓</div>
+            <div class="rm-event-title">Cine Foro: Crímenes de Estado</div>
+            <div class="rm-event-date">📅 28 mayo 2025 · Biblioteca UG</div>
+            <div class="rm-event-slots">Cupos para delegaciones: disponibles</div>
+          </div>
+        </div>
+        <p style="font-size:12px;color:var(--mt);text-align:center;margin-top:8px">— O propone invitar a ACE a tu propio evento —</p>
+      </div>
+      <div class="rm-box reveal">
+        <h3>Solicitud de participación</h3>
+        <p class="sub">Completa el formulario — el equipo directivo de ACE evaluará la solicitud y te responderá.</p>
+        <div class="rm-req-form">
+          <div class="fg" style="margin-bottom:10px"><label>Nombre de la organización <span class="req">*</span></label><input type="text" placeholder="Ej: REDMUN · Red de Model UN" id="rm-org"></div>
+          <div class="fg" style="margin-bottom:10px"><label>Tipo de solicitud</label>
+            <select id="rm-tipo"><option>Quiero asistir a un evento de ACE</option><option>Quiero invitar a ACE a mi evento</option><option>Quiero colaborar / co-organizar</option></select></div>
+          <div id="rm-invite-fields" style="display:none">
+            <div class="fg" style="margin-bottom:10px"><label>Nombre de tu evento</label><input type="text" id="rm-evt-name" placeholder="Ej: Conferencia Nacional de Derecho"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:10px">
+              <div class="fg"><label>Fecha preferida</label><input type="date" id="rm-date"></div>
+              <div class="fg"><label>Horario</label><input type="time" id="rm-time" value="10:00"></div>
+            </div>
+            <div class="fg" style="margin-bottom:10px"><label>Lugar del evento</label><input type="text" id="rm-place" placeholder="Ciudad, institución"></div>
+          </div>
+          <div class="fg" style="margin-bottom:10px"><label>Evento de ACE seleccionado</label><input type="text" id="rm-selected-evt" placeholder="Selecciona un evento a la izquierda" readonly style="background:rgba(60,174,120,.04)"></div>
+          <div class="fg" style="margin-bottom:10px"><label>Nombre del representante <span class="req">*</span></label><input type="text" placeholder="Nombre completo" id="rm-rep"></div>
+          <div class="fg" style="margin-bottom:10px"><label>Correo de contacto <span class="req">*</span></label><input type="email" placeholder="contacto@organizacion.com" id="rm-correo"></div>
+          <div class="fg" style="margin-bottom:14px"><label>Mensaje / detalles adicionales</label><textarea placeholder="¿Cuántas personas vendrían? ¿Qué tipo de participación esperan?" id="rm-msg" style="min-height:70px"></textarea></div>
+          <button class="frm-submit" onclick="submitRm()">Enviar solicitud a ACE →</button>
+        </div>
+
+        <div style="margin-top:20px;border-top:1px solid var(--br);padding-top:16px">
+          <p style="font-size:11px;color:var(--mt);font-weight:500;margin-bottom:10px;text-transform:uppercase;letter-spacing:.08em">Solicitudes recibidas (Admin)</p>
+          <div class="rm-requests" id="rm-requests-list">
+            <div class="rm-req-card">
+              <div class="rm-req-org">REDMUN Ecuador</div>
+              <div class="rm-req-evt">Solicitud: Asistir al Torneo de Debate Jurídico</div>
+              <div class="rm-req-info">Rep: Valeria Campos · 15 personas · <span class="status-badge sb-pending" style="margin-left:4px">Pendiente</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LOGROS ══ -->
+<section id="logros" class="logros">
+  <div class="container">
+    <div class="reveal"><div class="stag">Logros y actividades</div><h2 class="st">Lo que ACE ha construido</h2><p class="sd">Actividades, eventos y resultados que ACE ha logrado para la comunidad.</p></div>
+    <div class="log-grid">
+      <div class="log-card reveal"><div class="log-img"><!-- ADMIN: <img src="foto.jpg" style="width:100%;height:100%;object-fit:cover"> --><div class="log-img-ph"><div class="log-icon">🖼️</div><div class="log-hint">Agregar foto</div></div><div class="log-badge">Evento</div></div><div class="log-body"><div class="log-meta"><!-- ADMIN: Mes Año --></div><h4><!-- ADMIN: Nombre del evento --></h4><p><!-- ADMIN: Descripción breve --></p></div></div>
+      <div class="log-card reveal"><div class="log-img"><div class="log-img-ph"><div class="log-icon">🖼️</div><div class="log-hint">Agregar foto</div></div><div class="log-badge">Programa</div></div><div class="log-body"><div class="log-meta"><!-- ADMIN: Mes Año --></div><h4><!-- ADMIN: Nombre --></h4><p><!-- ADMIN: Descripción --></p></div></div>
+      <div class="log-card reveal"><div class="log-img"><div class="log-img-ph"><div class="log-icon">🖼️</div><div class="log-hint">Agregar foto</div></div><div class="log-badge">Actividad</div></div><div class="log-body"><div class="log-meta"><!-- ADMIN: Mes Año --></div><h4><!-- ADMIN: Nombre --></h4><p><!-- ADMIN: Descripción --></p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALERÍA ══ -->
+<section id="galeria">
+  <div class="container">
+    <div class="reveal"><div class="stag">Galería</div><h2 class="st">ACE en fotos</h2></div>
+    <div class="gal-note reveal"><span>📸</span><span><strong>Admin:</strong> Reemplaza cada celda con <code style="background:rgba(255,255,255,.07);padding:1px 5px;border-radius:4px;font-size:10px">&lt;img src="foto.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:11px"&gt;</code></span></div>
+    <div class="gal-grid reveal">
+      <div class="gi lg"><div class="gi-ph-icon">🏛️</div><div class="gi-ph-txt">Foto principal</div><div class="gi-hl">+ Agregar foto</div><div class="gi-n">1</div></div>
+      <div class="gi"><div class="gi-ph-icon">📸</div><div class="gi-ph-txt">Foto 2</div><div class="gi-hl">+ Agregar</div><div class="gi-n">2</div></div>
+      <div class="gi"><div class="gi-ph-icon">📸</div><div class="gi-ph-txt">Foto 3</div><div class="gi-hl">+ Agregar</div><div class="gi-n">3</div></div>
+      <div class="gi tl"><div class="gi-ph-icon">📸</div><div class="gi-ph-txt">Foto vertical</div><div class="gi-hl">+ Agregar</div><div class="gi-n">4</div></div>
+      <div class="gi"><div class="gi-ph-icon">📸</div><div class="gi-ph-txt">Foto 5</div><div class="gi-hl">+ Agregar</div><div class="gi-n">5</div></div>
+      <div class="gi"><div class="gi-ph-icon">📸</div><div class="gi-ph-txt">Foto 6</div><div class="gi-hl">+ Agregar</div><div class="gi-n">6</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EQUIPO ══ -->
+<section id="equipo" class="val">
+  <div class="container">
+    <div class="reveal"><div class="stag">Equipo directivo</div><h2 class="st">Las personas detrás de ACE</h2><p class="sd">El equipo que hace posible cada actividad y decisión de la Alianza.</p></div>
+    <div class="eqp-grid">
+      <div class="eqp-card reveal"><div class="eqp-av"><!-- ADMIN: iniciales --><div class="eqp-online"></div></div><div class="eqp-name"><!-- ADMIN: Nombre --></div><div class="eqp-role"><!-- ADMIN: Presidente --></div><div class="eqp-carrera"><!-- ADMIN: Carrera · Semestre --></div></div>
+      <div class="eqp-card reveal"><div class="eqp-av"></div><div class="eqp-name"><!-- ADMIN --></div><div class="eqp-role"><!-- ADMIN: Vicepresidente --></div><div class="eqp-carrera"><!-- ADMIN --></div></div>
+      <div class="eqp-card reveal"><div class="eqp-av"></div><div class="eqp-name"><!-- ADMIN --></div><div class="eqp-role"><!-- ADMIN --></div><div class="eqp-carrera"><!-- ADMIN --></div></div>
+      <div class="eqp-card reveal"><div class="eqp-av"></div><div class="eqp-name"><!-- ADMIN --></div><div class="eqp-role"><!-- ADMIN --></div><div class="eqp-carrera"><!-- ADMIN --></div></div>
+      <button class="eqp-add reveal"><span style="font-size:20px;opacity:.4">＋</span>Agregar miembro</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACTO ══ -->
+<section id="contacto" class="contact">
+  <div class="container">
+    <div class="reveal"><div class="stag">Contacto</div><h2 class="st">Habla directamente<br>con los líderes de ACE</h2></div>
+    <div class="contact-grid" style="margin-top:44px">
+      <div class="contact-info reveal">
+        <p>¿Tienes dudas sobre ACE, sobre la plataforma digital o quieres colaborar? Contacta directamente al equipo de liderazgo de la Alianza.</p>
+        <div class="contact-cards">
+          <!-- ADMIN: duplica estas tarjetas para cada líder -->
+          <div class="cc">
+            <div class="cc-av"><!-- ADMIN: iniciales --></div>
+            <div class="cc-body">
+              <div class="cc-name"><!-- ADMIN: Nombre completo --></div>
+              <div class="cc-role"><!-- ADMIN: Presidente / Coordinador de X --></div>
+              <div class="cc-links">
+                <a href="https://wa.me/593XXXXXXXXX" class="cc-link" target="_blank">📱 WhatsApp</a>
+                <a href="mailto:correo@ug.edu.ec" class="cc-link">✉️ Correo</a>
+                <a href="https://instagram.com/usuario" class="cc-link" target="_blank">📸 Instagram</a>
+              </div>
+            </div>
+          </div>
+          <div class="cc">
+            <div class="cc-av"><!-- ADMIN: iniciales --></div>
+            <div class="cc-body">
+              <div class="cc-name"><!-- ADMIN --></div>
+              <div class="cc-role"><!-- ADMIN --></div>
+              <div class="cc-links">
+                <a href="https://wa.me/593XXXXXXXXX" class="cc-link" target="_blank">📱 WhatsApp</a>
+                <a href="mailto:correo@ug.edu.ec" class="cc-link">✉️ Correo</a>
+              </div>
+            </div>
+          </div>
+          <div class="cc">
+            <div class="cc-av"><!-- ADMIN: iniciales --></div>
+            <div class="cc-body">
+              <div class="cc-name"><!-- ADMIN --></div>
+              <div class="cc-role"><!-- ADMIN --></div>
+              <div class="cc-links">
+                <a href="https://wa.me/593XXXXXXXXX" class="cc-link" target="_blank">📱 WhatsApp</a>
+                <a href="mailto:correo@ug.edu.ec" class="cc-link">✉️ Correo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:20px;background:rgba(60,174,120,.06);border:1px solid rgba(60,174,120,.15);border-radius:10px;padding:14px">
+          <p style="font-size:12px;color:var(--mt);line-height:1.65">📍 <strong style="color:var(--gl)">Oficina ACE</strong> — <!-- ADMIN: Facultad de Jurisprudencia, Edificio X, Piso Y, UG Guayaquil --><br>🕐 Atención: <!-- ADMIN: Lunes a Viernes 10:00–13:00 y 15:00–18:00 --></p>
+        </div>
+      </div>
+      <div class="contact-form-box reveal">
+        <h3>Enviar consulta</h3>
+        <p class="sub">Te responderemos en menos de 24 horas.</p>
+        <div id="contact-form-fields">
+          <div class="fg" style="margin-bottom:10px"><label>Tu nombre <span class="req">*</span></label><input type="text" id="c-nombre" placeholder="Nombre completo"></div>
+          <div class="fg" style="margin-bottom:10px"><label>Correo <span class="req">*</span></label><input type="email" id="c-correo" placeholder="tu@correo.com"></div>
+          <div class="fg" style="margin-bottom:10px"><label>Asunto</label>
+            <select id="c-asunto"><option>Consulta general</option><option>Inscripción a ACE</option><option>Propuesta de evento</option><option>Colaboración externa</option><option>Problema técnico</option><option>Otro</option></select></div>
+          <div class="fg" style="margin-bottom:14px"><label>Mensaje <span class="req">*</span></label><textarea id="c-msg" placeholder="Escribe tu consulta aquí..." style="min-height:100px"></textarea></div>
+          <button class="frm-submit" onclick="submitContact()">Enviar mensaje →</button>
+        </div>
+        <div class="frm-success" id="contact-success">
+          <div class="frm-success-icon">✅</div>
+          <h4>¡Mensaje enviado!</h4>
+          <p>El equipo de ACE ha recibido tu mensaje. Te responderemos en menos de 24 horas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ROADMAP ══ -->
+<section id="roadmap" class="rm-sect">
+  <div class="container">
+    <div class="reveal"><div class="stag">Roadmap</div><h2 class="st">De cero a plataforma<br>en 8 semanas</h2></div>
+    <div class="rm-grid">
+      <div class="ph p1 reveal"><div class="ph-head"><div class="ph-num">1</div><div class="ph-wk">Sem. 1–2</div></div><h3>Fundación</h3><div class="ph-items"><div class="ph-item"><div class="ph-dot"></div>Setup del proyecto</div><div class="ph-item"><div class="ph-dot"></div>Base de datos y auth</div><div class="ph-item"><div class="ph-dot"></div>Página principal</div><div class="ph-item"><div class="ph-dot"></div>Deploy en internet</div></div></div>
+      <div class="ph p2 reveal"><div class="ph-head"><div class="ph-num">2</div><div class="ph-wk">Sem. 3–4</div></div><h3>Contenido</h3><div class="ph-items"><div class="ph-item"><div class="ph-dot"></div>Registro miembros</div><div class="ph-item"><div class="ph-dot"></div>Panel admin</div><div class="ph-item"><div class="ph-dot"></div>Noticias y eventos</div><div class="ph-item"><div class="ph-dot"></div>Calendario</div></div></div>
+      <div class="ph p3 reveal"><div class="ph-head"><div class="ph-num">3</div><div class="ph-wk">Sem. 5–6</div></div><h3>Automatización</h3><div class="ph-items"><div class="ph-item"><div class="ph-dot"></div>Correo bienvenida</div><div class="ph-item"><div class="ph-dot"></div>Recordatorios</div><div class="ph-item"><div class="ph-dot"></div>Newsletter</div><div class="ph-item"><div class="ph-dot"></div>Notificaciones</div></div></div>
+      <div class="ph p4 reveal"><div class="ph-head"><div class="ph-num">4</div><div class="ph-wk">Sem. 7–8</div></div><h3>Avanzado</h3><div class="ph-items"><div class="ph-item"><div class="ph-dot"></div>Votaciones</div><div class="ph-item"><div class="ph-dot"></div>Dashboard métricas</div><div class="ph-item"><div class="ph-dot"></div>Roles y permisos</div><div class="ph-item"><div class="ph-dot"></div>Exportar PDF</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STACK ══ -->
+<section id="tecnologia">
+  <div class="container">
+    <div class="reveal"><div class="stag">Tecnología</div><h2 class="st">Stack profesional, costo cero</h2></div>
+    <div class="sk-grid">
+      <div class="sk-card reveal"><div class="sk-icon">⚛️</div><div class="sk-name">React</div><div class="sk-role">Interfaz web</div><div class="sk-free">Gratis</div></div>
+      <div class="sk-card reveal"><div class="sk-icon">🗄️</div><div class="sk-name">Supabase</div><div class="sk-role">Base de datos + Auth</div><div class="sk-free">Gratis</div></div>
+      <div class="sk-card reveal"><div class="sk-icon">▲</div><div class="sk-name">Vercel</div><div class="sk-role">Hosting</div><div class="sk-free">Gratis</div></div>
+      <div class="sk-card reveal"><div class="sk-icon">📧</div><div class="sk-name">Brevo</div><div class="sk-role">Correos automáticos</div><div class="sk-free">300/día gratis</div></div>
+      <div class="sk-card reveal"><div class="sk-icon">🎨</div><div class="sk-name">Tailwind</div><div class="sk-role">Diseño</div><div class="sk-free">Gratis</div></div>
+      <div class="sk-card reveal"><div class="sk-icon">🐙</div><div class="sk-name">GitHub</div><div class="sk-role">Código colaborativo</div><div class="sk-free">Gratis</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section id="faq" class="faq-sect">
+  <div class="container">
+    <div class="reveal"><div class="stag">FAQ</div><h2 class="st">Preguntas frecuentes</h2></div>
+    <div class="faq-grid">
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">¿Quién puede unirse a ACE?</span><div class="faq-ar">+</div></button><div class="faq-a">Cualquier estudiante activo de la Facultad de Jurisprudencia de la Universidad de Guayaquil. Solo necesitas estar matriculado en el período actual.</div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">¿Tiene costo ser miembro?</span><div class="faq-ar">+</div></button><div class="faq-a">No. La membresía en ACE es completamente gratuita. Somos una organización estudiantil sin fines de lucro.</div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">¿Cómo propongo un evento?</span><div class="faq-ar">+</div></button><div class="faq-a">En la sección "Gestión de eventos" puedes completar el formulario con los detalles de tu idea. El equipo directivo lo revisará y, si es aprobado, aparecerá en el calendario público.</div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">¿Cómo funciona el portal de invitados?</span><div class="faq-ar">+</div></button><div class="faq-a">Organizaciones externas como REDMUN pueden ver los eventos disponibles de ACE, seleccionar uno y enviar una solicitud de participación o invitación. El admin de ACE recibe la solicitud y la evalúa.</div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">¿Cuándo estará lista la plataforma completa?</span><div class="faq-ar">+</div></button><div class="faq-a">El desarrollo está planificado en 8 semanas. Las funciones básicas (registro, calendario, noticias) estarán listas en las primeras 4 semanas.</div></div>
+      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">¿Mis datos están seguros?</span><div class="faq-ar">+</div></button><div class="faq-a">Sí. Usamos Supabase con estándares de seguridad internacionales. Los datos personales de los miembros nunca se comparten con terceros.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-sect">
+  <div class="cta-glow"></div>
+  <div class="container reveal">
+    <h2>¿Eres estudiante de Jurisprudencia?<br>Esto se construye <em style="color:var(--g);font-style:normal">para ti</em></h2>
+    <p>Únete a ACE hoy y forma parte de la transformación digital de la Alianza Colectiva Estudiantil.</p>
+    <div class="cta-btns">
+      <a href="#inscripcion" class="btn">Unirme a ACE →</a>
+      <a href="#contacto" class="btn-o">Contactar al equipo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="fl"><div class="flb">ACE</div><div><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:13px;color:var(--tx)">ACE Digital</div><div style="font-size:10px;color:var(--mt)">Alianza Colectiva Estudiantil · UG Jurisprudencia</div></div></div>
+  <div class="flinks">
+    <a href="#historia">Historia</a><a href="#inscripcion">Unirse</a><a href="#eventos">Eventos</a>
+    <a href="#docentes">Docentes</a><a href="#invitados">Invitados</a><a href="#contacto">Contacto</a>
+  </div>
+  <div class="fr">Plataforma en desarrollo · 2025<br>Hecho con <span>♥</span> por estudiantes de la UG</div>
+</footer>
+
+<!-- ══ WATERMARK ══ -->
+<div class="watermark">
+  <span class="wm-text"><strong>Jostin Alvarado</strong> <span style="color:rgba(60,174,120,.4)">×</span> ACE Alianza Colectiva Estudiantil</span>
+  <span class="wm-sep">·</span>
+  <span class="wm-text">Diseño &amp; Desarrollo · Facultad de Jurisprudencia · UG · 2025</span>
+  <span class="wm-sep">·</span>
+  <span class="wm-text" style="font-size:10px;opacity:.6">Todos los derechos reservados</span>
+</div>
+
+<script>
+// ── Reveal ──
+const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*55);obs.unobserve(e.target)}})},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ── Nav utils ──
+function scroll2(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+function closeMenu(){document.getElementById('mm').classList.remove('open')}
+
+// ── Nav active highlight ──
+const sects=document.querySelectorAll('section[id]');
+const navAs=document.querySelectorAll('.nlinks a');
+window.addEventListener('scroll',()=>{let c='';sects.forEach(s=>{if(window.scrollY>=s.offsetTop-130)c=s.id});navAs.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+c?'var(--gl)':''})},{passive:true});
+
+// ── Mouse glow ──
+document.querySelectorAll('.fc').forEach(c=>{c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');c.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%')})});
+
+// ── FAQ ──
+function toggleFaq(btn){const i=btn.closest('.faq-item'),o=i.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open')}
+
+// ── Registro form ──
+function submitReg(){
+  const n=document.getElementById('r-nombre').value;
+  const e=document.getElementById('r-correo').value;
+  const t=document.getElementById('r-terms').checked;
+  const m=document.getElementById('r-motivo').value;
+  if(!n||!e||!t||!m){alert('Por favor completa los campos obligatorios y acepta los términos.');return}
+  document.getElementById('reg-form-content').style.display='none';
+  document.getElementById('reg-success').style.display='block';
+}
+
+// ── Proponer evento ──
+function propEvent(){
+  const n=document.getElementById('e-nombre').value;
+  const d=document.getElementById('e-desc').value;
+  const f=document.getElementById('e-fecha').value;
+  if(!n||!d||!f){alert('Completa el nombre, fecha y descripción del evento.');return}
+  document.getElementById('evt-form-fields').style.display='none';
+  document.getElementById('evt-success').style.display='block';
+  // Agregar al panel de pendientes
+  const tipo=document.getElementById('e-tipo').value;
+  const autor=document.getElementById('e-autor').value||'Miembro ACE';
+  const id='ec'+Date.now();
+  const card=document.createElement('div');
+  card.className='evt-card';card.id=id;
+  card.innerHTML=`<div class="evt-card-header"><div><div class="evt-card-title">${n}</div><div class="evt-card-date">📅 ${f} · ${document.getElementById('e-hora').value||'--:--'} · ${document.getElementById('e-lugar').value||'Por definir'}</div></div><span class="status-badge sb-pending">Pendiente</span></div><div class="evt-card-meta">Propuesto por: ${autor} · Tipo: ${tipo}</div><div class="evt-card-actions"><button class="evt-btn-approve" onclick="approveEvt('${id}','${n}')">✓ Aprobar</button><button class="evt-btn-reject" onclick="rejectEvt('${id}')">✗ Rechazar</button></div>`;
+  document.getElementById('pending-events').prepend(card);
+}
+
+// ── Admin aprobar/rechazar ──
+function approveEvt(id,name){
+  const card=document.getElementById(id);
+  const badge=card.querySelector('.status-badge');
+  badge.className='status-badge sb-approved';badge.textContent='Aprobado ✓';
+  card.querySelectorAll('.evt-card-actions button').forEach(b=>b.remove());
+  const sec=document.getElementById('approved-section');
+  sec.style.display='block';
+  const li=document.createElement('div');
+  li.style.cssText='font-size:12px;color:var(--gl);padding:4px 0;border-bottom:1px solid var(--br)';
+  li.textContent='✓ '+name+' → agregado al calendario';
+  document.getElementById('approved-list').appendChild(li);
+}
+function rejectEvt(id){
+  const card=document.getElementById(id);
+  const badge=card.querySelector('.status-badge');
+  badge.className='status-badge sb-rejected';badge.textContent='Rechazado';
+  card.querySelectorAll('.evt-card-actions button').forEach(b=>b.remove());
+}
+
+// ── Inscripción a evento ──
+function toggleEvtReg(id){
+  const el=document.getElementById(id);
+  el.classList.toggle('open');
+}
+function registerEvent(evtId,cntId,current){
+  const n=document.getElementById(evtId==='evr1'?'ei1-nombre':'ei2-nombre').value;
+  const e=document.getElementById(evtId==='evr1'?'ei1-correo':'ei2-correo').value;
+  if(!n||!e){alert('Por favor ingresa tu nombre y correo.');return}
+  const cnt=document.getElementById(cntId);
+  cnt.textContent=parseInt(cnt.textContent)+1;
+  const btn=event.target;
+  btn.textContent='¡Inscrito! ✓';
+  btn.style.background='var(--gd)';
+  btn.disabled=true;
+}
+
+// ── REDMUN select event ──
+function selectRmEvent(el,name,date){
+  document.querySelectorAll('.rm-event').forEach(e=>e.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('rm-selected-evt').value=name+' · '+date;
+}
+
+// ── REDMUN tipo toggle ──
+document.getElementById('rm-tipo').addEventListener('change',function(){
+  document.getElementById('rm-invite-fields').style.display=this.value.includes('invitar')?'block':'none';
+});
+
+// ── Submit REDMUN ──
+function submitRm(){
+  const org=document.getElementById('rm-org').value;
+  const rep=document.getElementById('rm-rep').value;
+  const correo=document.getElementById('rm-correo').value;
+  if(!org||!rep||!correo){alert('Completa nombre de organización, representante y correo.');return}
+  const list=document.getElementById('rm-requests-list');
+  const card=document.createElement('div');
+  card.className='rm-req-card';
+  const tipo=document.getElementById('rm-tipo').value;
+  const evt=document.getElementById('rm-selected-evt').value||'Sin evento específico';
+  card.innerHTML=`<div class="rm-req-org">${org}</div><div class="rm-req-evt">Solicitud: ${tipo.includes('asistir')?'Asistir a: '+evt:tipo}</div><div class="rm-req-info">Rep: ${rep} · <span class="status-badge sb-pending" style="margin-left:2px">Pendiente</span></div>`;
+  list.prepend(card);
+  alert('✓ Solicitud enviada al equipo directivo de ACE. Te contactaremos pronto.');
+  document.getElementById('rm-org').value='';document.getElementById('rm-rep').value='';document.getElementById('rm-correo').value='';document.getElementById('rm-msg').value='';document.getElementById('rm-selected-evt').value='';
+  document.querySelectorAll('.rm-event').forEach(e=>e.classList.remove('selected'));
+}
+
+// ── Contact form ──
+function submitContact(){
+  const n=document.getElementById('c-nombre').value;
+  const e=document.getElementById('c-correo').value;
+  const m=document.getElementById('c-msg').value;
+  if(!n||!e||!m){alert('Completa todos los campos obligatorios.');return}
+  document.getElementById('contact-form-fields').style.display='none';
+  document.getElementById('contact-success').style.display='block';
+}
+</script>
+</body>
+</html>
