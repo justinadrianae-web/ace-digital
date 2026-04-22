@@ -5,9 +5,9 @@ import { enviarConsulta } from '../lib/supabase'
 import toast from 'react-hot-toast'
 
 const LIDERES = [
-  { iniciales:'--', nombre:'Nombre del Líder 1', cargo:'Presidente/a de ACE', whatsapp:'593XXXXXXXXX', correo:'lider1@ug.edu.ec', instagram:'' },
-  { iniciales:'--', nombre:'Nombre del Líder 2', cargo:'Vicepresidente/a', whatsapp:'593XXXXXXXXX', correo:'lider2@ug.edu.ec', instagram:'' },
-  { iniciales:'--', nombre:'Nombre del Líder 3', cargo:'Coordinador/a de Comunicación', whatsapp:'593XXXXXXXXX', correo:'lider3@ug.edu.ec', instagram:'' },
+  { iniciales:'NR', nombre:'Nathalie Rivera', cargo:'Coordinadora General', whatsapp:'593990558066', correo:'nathalie.rivera@ace-ug.com', instagram:'alianzacolectivaestudiantil' },
+  { iniciales:'AP', nombre:'Angel Pilay', cargo:'Coordinador', whatsapp:'593991450284', correo:'angel.pilay@ace-ug.com', instagram:'alianzacolectivaestudiantil' },
+  { iniciales:'JG', nombre:'Joshua Guagua', cargo:'Coordinador', whatsapp:'593961687728', correo:'joshua.guagua@ace-ug.com', instagram:'alianzacolectivaestudiantil' },
 ]
 
 export default function Contacto() {
@@ -59,8 +59,8 @@ export default function Contacto() {
               </div>
             ))}
             <div style={{ marginTop:16, background:'rgba(60,174,120,.06)', border:'1px solid rgba(60,174,120,.15)', borderRadius:10, padding:'14px 18px', fontSize:12, color:'#8ABFA3', lineHeight:1.65 }}>
-              📍 <strong style={{ color:'#5DC995' }}>Oficina ACE</strong> — Facultad de Jurisprudencia, UG Guayaquil<br/>
-              🕐 Atención: Lunes a Viernes · 10:00–13:00 y 15:00–18:00
+              📍 <strong style={{ color:'#5DC995' }}>ACE PERTENECE A</strong> — Facultad de Jurisprudencia, UG Guayaquil<br/>
+              🕐 Atención Online: Lunes a Viernes · 10:00–13:00 y 15:00–18:00
             </div>
           </div>
 
