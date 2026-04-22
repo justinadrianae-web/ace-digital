@@ -1,40 +1,102 @@
-// src/components/sections/Logros.jsx
+import { useReveal } from '../../lib/useReveal';
+import { Award, Users, Heart, BookOpen } from 'lucide-react';
+
 export default function Logros() {
-  const logros = [
-    { badge:'Evento', meta:'<!-- ADMIN: Mes Año -->', title:'<!-- ADMIN: Nombre del evento -->', desc:'<!-- ADMIN: Describe el logro o actividad realizada -->' },
-    { badge:'Programa', meta:'<!-- ADMIN: Mes Año -->', title:'<!-- ADMIN: Nombre del programa -->', desc:'<!-- ADMIN: Descripción -->' },
-    { badge:'Actividad', meta:'<!-- ADMIN: Mes Año -->', title:'<!-- ADMIN: Nombre de la actividad -->', desc:'<!-- ADMIN: Descripción -->' },
-  ]
+  const ref = useReveal();
+
+  const proyectos = [
+    {
+      icon: Users,
+      titulo: 'Acércate',
+      descripcion: 'Proyecto de integración estudiantil desde nivelación, permitiendo que los nuevos estudiantes conozcan la facultad y generen espacios de networking. Brinda herramientas iniciales y facilita la adaptación al entorno universitario.',
+      impacto: 'Integración de estudiantes de nivelación',
+      color: 'from-emerald-500 to-teal-500'
+    },
+    {
+      icon: Heart,
+      titulo: 'Ticket Micho',
+      descripcion: 'Iniciativa solidaria dirigida al cuidado y apoyo de los animales dentro de la universidad. Nace del trabajo conjunto de varios miembros con un propósito común: ayudar a quienes más lo necesitan.',
+      impacto: 'Protección animal universitaria',
+      color: 'from-pink-500 to-rose-500'
+    },
+    {
+      icon: Award,
+      titulo: 'Reconocimiento a Matilde Hidalgo de Prócel',
+      descripcion: 'En articulación con la Asamblea Nacional y el despacho de la asambleísta Naila Victoria Quintana, se realizó la entrega de un reconocimiento legislativo a la Mgs. Grace Sánchez, en honor al legado de Matilde Hidalgo.',
+      impacto: 'Reconocimiento con la Asamblea Nacional',
+      color: 'from-purple-500 to-indigo-500'
+    },
+    {
+      icon: BookOpen,
+      titulo: 'Introducción a la Jurisprudencia',
+      descripcion: 'Serie de talleres dirigidos a estudiantes de nuevo ingreso. Brinda una guía básica sobre temas, libros, autores y conceptos fundamentales de las tres carreras (Derecho, Ciencias Políticas, Sociología), fortaleciendo el vínculo con la facultad.',
+      impacto: 'Formación de estudiantes de primer ingreso',
+      color: 'from-blue-500 to-cyan-500'
+    }
+  ];
+
   return (
-    <section id="logros" style={{ padding:'96px 24px', background:'#102019' }}>
-      <div style={{ maxWidth:1100, margin:'0 auto' }}>
-        <div className="reveal" style={{ marginBottom:44 }}>
-          <div style={{ color:'#3CAE78', fontSize:11, fontWeight:500, textTransform:'uppercase', letterSpacing:'.12em', marginBottom:12, display:'flex', alignItems:'center', gap:7 }}>
-            <span style={{ width:16, height:1, background:'#3CAE78', display:'inline-block' }}></span>Logros y actividades
-          </div>
-          <h2 style={{ fontFamily:'Bricolage Grotesque,sans-serif', fontSize:'clamp(24px,4vw,40px)', fontWeight:800, lineHeight:1.1 }}>Lo que ACE ha construido</h2>
-          <p style={{ color:'#8ABFA3', fontSize:15, marginTop:10, maxWidth:500 }}>Actividades, eventos y resultados que ACE ha logrado para la comunidad estudiantil.</p>
+    <section className="py-24 bg-gradient-to-b from-gray-800 to-gray-900 relative overflow-hidden" ref={ref}>
+      {/* Decoración de fondo */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <span className="text-emerald-400 font-semibold tracking-wider uppercase text-sm">Nuestro Impacto</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
+            Proyectos Oficiales ACE
+          </h2>
+          <p className="text-gray-300 text-lg">
+            Iniciativas que transforman la experiencia estudiantil en Jurisprudencia, 
+            desde el apoyo académico hasta la solidaridad social.
+          </p>
         </div>
-        <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(270px,1fr))', gap:12 }}>
-          {logros.map((l,i) => (
-            <div key={i} className="reveal" style={{ background:'#132A1E', border:'1px solid rgba(60,174,120,.13)', borderRadius:13, overflow:'hidden', transition:'all .28s' }}
-              onMouseEnter={e=>{e.currentTarget.style.borderColor='rgba(60,174,120,.3)';e.currentTarget.style.transform='translateY(-2px)'}}
-              onMouseLeave={e=>{e.currentTarget.style.borderColor='rgba(60,174,120,.13)';e.currentTarget.style.transform='none'}}>
-              <div style={{ width:'100%', height:170, background:'#1A3227', display:'flex', alignItems:'center', justifyContent:'center', flexDirection:'column', gap:8, borderBottom:'1px solid rgba(60,174,120,.13)', position:'relative' }}>
-                {/* ADMIN: reemplaza con <img src="foto.jpg" style={{width:"100%",height:"100%",objectFit:"cover"}} /> */}
-                <div style={{ fontSize:32, opacity:.2 }}>🖼️</div>
-                <div style={{ fontSize:10, color:'#8ABFA3', opacity:.5 }}>Agregar foto del evento</div>
-                <div style={{ position:'absolute', top:10, right:10, background:'#3CAE78', color:'#fff', fontSize:9, fontWeight:600, padding:'3px 8px', borderRadius:99 }}>{l.badge}</div>
+
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {proyectos.map((proyecto, i) => {
+            const Icon = proyecto.icon;
+            return (
+              <div 
+                key={i}
+                className="group bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 hover:border-emerald-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/10"
+              >
+                {/* Icono */}
+                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${proyecto.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <Icon className="w-8 h-8 text-white" />
+                </div>
+
+                {/* Contenido */}
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">
+                  {proyecto.titulo}
+                </h3>
+                
+                <p className="text-gray-300 leading-relaxed mb-4">
+                  {proyecto.descripcion}
+                </p>
+
+                {/* Badge de impacto */}
+                <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-4 py-2 text-sm">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                  <span className="text-emerald-400 font-medium">{proyecto.impacto}</span>
+                </div>
               </div>
-              <div style={{ padding:16 }}>
-                <div style={{ fontSize:10, color:'#3CAE78', fontWeight:500, marginBottom:4, textTransform:'uppercase', letterSpacing:'.05em' }}>{l.meta}</div>
-                <h4 style={{ fontFamily:'Bricolage Grotesque,sans-serif', fontSize:14, fontWeight:600, marginBottom:4 }}>{l.title}</h4>
-                <p style={{ fontSize:12, color:'#8ABFA3', lineHeight:1.55 }}>{l.desc}</p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
+        </div>
+
+        {/* Estadística adicional */}
+        <div className="mt-16 text-center">
+          <div className="inline-flex items-center gap-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full px-8 py-4">
+            <Award className="w-6 h-6 text-emerald-400" />
+            <span className="text-gray-300">
+              <span className="text-white font-bold text-xl">4 Proyectos Activos</span> transformando la vida estudiantil
+            </span>
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

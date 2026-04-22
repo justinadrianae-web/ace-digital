@@ -1,12 +1,12 @@
 // src/components/sections/Valores.jsx
 export default function Valores() {
   const vals = [
-    ['01','Transparencia','Todo lo que hacemos es visible. Sin agendas ocultas ni decisiones a puertas cerradas.'],
-    ['02','Participación','Cada estudiante tiene voz. Fomentamos la inclusión activa en todas nuestras decisiones.'],
-    ['03','Compromiso','Cumplimos lo que prometemos. El compromiso con la comunidad estudiantil es nuestra prioridad.'],
-    ['04','Innovación','Usamos tecnología y nuevas ideas para mejorar continuamente la experiencia estudiantil.'],
-    ['05','Unidad','La fuerza colectiva supera a la individual. Trabajamos juntos sin importar diferencias.'],
-    ['06','Respeto','Reconocemos la diversidad y garantizamos un ambiente seguro para todos.'],
+    ['01','Igualdad','Cada voz tiene el mismo peso. Nos oponemos a los modelos jerárquicos donde las personas quedan invisibilizadas.'],
+    ['02','Participación Activa','Promovemos el diálogo y la formación crítica. La participación consciente es la base del cambio.'],
+    ['03','Liderazgo Horizontal','Sin presidentes ni directivas tradicionales. Cada miembro es un líder con capacidad de transformación.'],
+    ['04','Justicia Social','Comprometidos con el diálogo y la transformación de la realidad universitaria y ciudadana.'],
+    ['05','Solidaridad','Creemos en la dignidad de cada integrante. Somos una fraternidad que se apoya mutuamente.'],
+    ['06','Pensamiento Crítico','Fomentamos la formación constante y el liderazgo ético como agentes de cambio.'],
   ]
   return (
     <section id="valores" style={{ padding:'96px 24px', background:'#102019' }}>
@@ -15,7 +15,7 @@ export default function Valores() {
           <div style={{ color:'#3CAE78', fontSize:11, fontWeight:500, textTransform:'uppercase', letterSpacing:'.12em', marginBottom:12, display:'flex', alignItems:'center', gap:7 }}>
             <span style={{ width:16, height:1, background:'#3CAE78', display:'inline-block' }}></span>Valores
           </div>
-          <h2 style={{ fontFamily:'Bricolage Grotesque,sans-serif', fontSize:'clamp(24px,4vw,40px)', fontWeight:800, lineHeight:1.1 }}>Lo que nos define<br/>como colectivo</h2>
+          <h2 style={{ fontFamily:'Bricolage Grotesque,sans-serif', fontSize:'clamp(24px,4vw,40px)', fontWeight:800, lineHeight:1.1 }}>Lo que nos define<br/>como fraternidad</h2>
         </div>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(190px,1fr))', gap:10 }}>
           {vals.map(([num,title,desc]) => (

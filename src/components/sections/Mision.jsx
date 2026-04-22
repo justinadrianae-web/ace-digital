@@ -1,16 +1,28 @@
 // src/components/sections/Mision.jsx
 export default function Mision() {
   const cards = [
-    { icon:'🎯', title:'Misión', text:'Representar activamente a los estudiantes de Jurisprudencia, fomentando su participación, derechos y desarrollo académico dentro de la Universidad de Guayaquil.' },
-    { icon:'🔭', title:'Visión', text:'Ser la organización estudiantil de referencia de la UG: moderna, transparente, tecnológica y comprometida con el bienestar colectivo.' },
-    { icon:'💡', title:'Propósito', text:'Transformar la cultura de participación estudiantil: demostrar que organizarse, comunicarse y decidir juntos es posible y necesario.' },
+    { 
+      icon:'🎯', 
+      title:'Misión', 
+      text:'Somos un movimiento universitario que promueve el liderazgo ético, la participación activa y la formación crítica de jóvenes comprometidos con la justicia social, el diálogo y la transformación de la realidad universitaria y ciudadana.' 
+    },
+    { 
+      icon:'🔭', 
+      title:'Visión', 
+      text:'Ser una fraternidad referente en liderazgo universitario, reconocida por formar jóvenes conscientes, solidarios y preparados para incidir positivamente en la política universitaria y en la sociedad, construyendo un futuro más justo e inclusivo.' 
+    },
+    { 
+      icon:'⚖️', 
+      title:'Nuestra Lucha', 
+      text:'Luchamos contra los sistemas que buscan recriminar y silenciar. Nos oponemos a los modelos jerárquicos donde las voces quedan invisibilizadas. Creemos en la igualdad, la participación y la dignidad de cada integrante.' 
+    },
   ]
   return (
     <section id="mision" style={{ padding:'96px 24px', background:'#0C1C15' }}>
       <div style={{ maxWidth:1100, margin:'0 auto' }}>
         <div className="reveal">
           <div style={{ color:'#3CAE78', fontSize:11, fontWeight:500, textTransform:'uppercase', letterSpacing:'.12em', marginBottom:12, display:'flex', alignItems:'center', gap:7 }}>
-            <span style={{ width:16, height:1, background:'#3CAE78', display:'inline-block' }}></span>Misión · Visión · Propósito
+            <span style={{ width:16, height:1, background:'#3CAE78', display:'inline-block' }}></span>Misión · Visión · Nuestra Lucha
           </div>
           <h2 style={{ fontFamily:'Bricolage Grotesque,sans-serif', fontSize:'clamp(24px,4vw,40px)', fontWeight:800, lineHeight:1.1, marginBottom:44 }}>El norte que guía<br/>cada decisión</h2>
         </div>

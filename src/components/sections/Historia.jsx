@@ -1,43 +1,85 @@
+import { useReveal } from '../../lib/useReveal';
+
 export default function Historia() {
-  const tl = [
-    { year:'FUNDACIÓN', title:'Nace ACE', desc:'Un grupo de estudiantes decide organizarse para representar los intereses estudiantiles en Jurisprudencia.' },
-    { year:'PRIMER LOGRO', title:'<!-- Agregar -->',  desc:'<!-- Admin: describe el primer hito importante de ACE -->' },
-    { year:'CRECIMIENTO',  title:'<!-- Agregar -->',  desc:'<!-- Admin: describe el crecimiento de la organización -->' },
-    { year:'HOY · 2025',  title:'Plataforma Digital ACE', desc:'ACE lanza su primera plataforma web propia con calendario, votaciones, correos automáticos y más.' },
-  ]
+  const ref = useReveal();
+
+  const timeline = [
+    {
+      year: '7 AGO 2020',
+      title: 'Nace ACE',
+      desc: 'Alianza Colectiva Estudiantil surge como una fraternidad política universitaria en respuesta a la necesidad de fortalecer la unión, la participación y el compromiso real de los estudiantes de Jurisprudencia de la Universidad de Guayaquil.'
+    },
+    {
+      year: '2020-2024',
+      title: 'Liderazgo Horizontal',
+      desc: 'ACE se consolida como el único movimiento universitario que se rige por una línea política horizontal, sin presidentes ni directiva tradicional. Cada miembro es un líder, promoviendo la formación constante y el pensamiento crítico.'
+    },
+    {
+      year: '2023-2024',
+      title: 'Miembros Destacados',
+      desc: 'Natalie Rivera se convierte en Secretaria de la ASOJURIS con más de 4 años de experiencia. Gabriela Correa es elegida Delegada de la Liga Deportiva Universitaria (LDU) y representante femenina en la directiva universitaria.'
+    },
+    {
+      year: '2024',
+      title: 'Proyectos de Impacto',
+      desc: 'Se lanzan proyectos clave: Acércate (integración estudiantil), Ticket Micho (apoyo a animales), Reconocimiento a Matilde Hidalgo con la Asamblea Nacional, e Introducción a la Jurisprudencia (talleres para nuevos estudiantes).'
+    },
+    {
+      year: '3 OCT 2025',
+      title: 'Trevor Frater',
+      desc: 'Nace la mascota oficial del equipo: Trevor Frater, un símbolo representativo de la organización que se consolida como parte de la identidad del movimiento y está presente en publicaciones y materiales gráficos.'
+    },
+    {
+      year: 'HOY · 2025',
+      title: 'Plataforma Digital ACE',
+      desc: 'ACE lanza su primera plataforma web propia con registro de miembros, calendario de eventos, sistema de votaciones, panel de administración y herramientas digitales para fortalecer la participación estudiantil.'
+    }
+  ];
+
   return (
-    <section id="historia" style={{ padding:'96px 24px', background:'#102019' }}>
-      <div style={{ maxWidth:1100, margin:'0 auto', display:'grid', gridTemplateColumns:'1fr 1fr', gap:60, alignItems:'start' }}>
-        <div className="reveal">
-          <div style={{ color:'#3CAE78', fontSize:11, fontWeight:500, textTransform:'uppercase', letterSpacing:'.12em', marginBottom:12, display:'flex', alignItems:'center', gap:7 }}>
-            <span style={{ width:16, height:1, background:'#3CAE78', display:'inline-block' }}></span>Nuestra historia
-          </div>
-          <h2 style={{ fontFamily:'Bricolage Grotesque,sans-serif', fontSize:'clamp(24px,4vw,40px)', fontWeight:800, lineHeight:1.1, marginBottom:10 }}>Quiénes somos<br/>y de dónde venimos</h2>
-          <p style={{ color:'#8ABFA3', fontSize:14, lineHeight:1.8, marginBottom:14 }}>ACE nació de la iniciativa de un grupo de estudiantes de la Facultad de Jurisprudencia comprometidos con transformar la participación estudiantil desde adentro.</p>
-          <p style={{ color:'#8ABFA3', fontSize:14, lineHeight:1.8, marginBottom:14 }}>Fundada con la convicción de que los estudiantes merecen una representación activa, transparente y moderna, ACE se ha convertido en un espacio de organización, debate y acción colectiva.</p>
-          <blockquote style={{ borderLeft:'3px solid #3CAE78', paddingLeft:18, margin:'24px 0', fontSize:16, fontStyle:'italic', color:'#E8F5EE', lineHeight:1.6 }}>
-            "No somos solo una organización política, somos una comunidad estudiantil que construye el cambio desde las aulas."
-          </blockquote>
+    <section id="historia" className="py-24 bg-gradient-to-b from-gray-900 to-gray-800" ref={ref}>
+      <div className="container mx-auto px-6">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <span className="text-emerald-400 font-semibold tracking-wider uppercase text-sm">Nuestra Trayectoria</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
+            Más de 5 años de historia
+          </h2>
+          <p className="text-gray-300 text-lg">
+            Desde 2020, ACE ha transformado la participación estudiantil en Jurisprudencia UG, 
+            consolidándose como una fraternidad política horizontal donde cada voz importa.
+          </p>
         </div>
-        <div className="reveal">
-          <div style={{ color:'#3CAE78', fontSize:11, fontWeight:500, textTransform:'uppercase', letterSpacing:'.12em', marginBottom:20, display:'flex', alignItems:'center', gap:7 }}>
-            <span style={{ width:16, height:1, background:'#3CAE78', display:'inline-block' }}></span>Línea de tiempo
+
+        <div className="relative max-w-5xl mx-auto">
+          {/* Línea vertical central */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 via-emerald-400 to-emerald-500 transform -translate-x-1/2 hidden md:block"></div>
+
+          <div className="space-y-12">
+            {timeline.map((item, i) => (
+              <div key={i} className={`flex flex-col md:flex-row items-center gap-8 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                {/* Contenido */}
+                <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'} text-center md:text-left`}>
+                  <div className="bg-gray-800/50 backdrop-blur-sm border border-emerald-500/20 rounded-xl p-6 hover:border-emerald-500/40 transition-all duration-300 hover:scale-105">
+                    <span className="text-emerald-400 font-bold text-sm tracking-wider">{item.year}</span>
+                    <h3 className="text-2xl font-bold text-white mt-2 mb-3">{item.title}</h3>
+                    <p className="text-gray-300 leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+
+                {/* Punto central */}
+                <div className="relative z-10 flex-shrink-0">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center shadow-lg shadow-emerald-500/50 border-4 border-gray-900">
+                    <span className="text-white font-bold text-xl">{i + 1}</span>
+                  </div>
+                </div>
+
+                {/* Espacio vacío para balance */}
+                <div className="flex-1 hidden md:block"></div>
+              </div>
+            ))}
           </div>
-          {tl.map((item, i) => (
-            <div key={i} style={{ display:'flex', gap:14 }}>
-              <div style={{ display:'flex', flexDirection:'column', alignItems:'center' }}>
-                <div style={{ width:12, height:12, borderRadius:'50%', background:'#3CAE78', flexShrink:0, marginTop:3, boxShadow:'0 0 0 3px rgba(60,174,120,.2)' }}></div>
-                {i < tl.length-1 && <div style={{ width:1, flex:1, background:'rgba(60,174,120,.2)', minHeight:24, margin:'4px 0' }}></div>}
-              </div>
-              <div style={{ paddingBottom:24, flex:1 }}>
-                <div style={{ fontSize:10, fontWeight:600, color:'#3CAE78', letterSpacing:'.06em', marginBottom:3 }}>{item.year}</div>
-                <div style={{ fontFamily:'Bricolage Grotesque,sans-serif', fontSize:14, fontWeight:600, color:'#E8F5EE', marginBottom:3 }}>{item.title}</div>
-                <div style={{ fontSize:12, color:'#8ABFA3', lineHeight:1.55 }}>{item.desc}</div>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
