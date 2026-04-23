@@ -9,6 +9,7 @@ const modules = [
   { href:'/admin/eventos',     icon:'📅', title:'Eventos', desc:'Aprobar o rechazar propuestas del calendario' },
   { href:'/admin/solicitudes', icon:'🌐', title:'Solicitudes externas', desc:'Revisar peticiones de REDMUN y otras organizaciones' },
   { href:'/admin/consultas',   icon:'✉️', title:'Consultas', desc:'Mensajes recibidos desde el formulario de contacto' },
+  { href:'/admin/destacados',  icon:'⭐', title:'Miembros Destacados', desc:'Gestionar la sección de miembros destacados del sitio web' },
 ]
 
 export default function AdminPanel() {

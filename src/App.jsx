@@ -18,7 +18,7 @@ import AdminMiembros from './pages/admin/AdminMiembros'
 import AdminEventos from './pages/admin/AdminEventos'
 import AdminSolicitudes from './pages/admin/AdminSolicitudes'
 import AdminConsultas from './pages/admin/AdminConsultas'
-
+import AdminMiembrosDestacados from './pages/admin/AdminMiembrosDestacados'
 // Página 404
 import NotFound from './pages/NotFound'
 
@@ -42,7 +42,7 @@ export default function App() {
           <Route path="/admin/eventos"          element={<AdminEventos />} />
           <Route path="/admin/solicitudes"      element={<AdminSolicitudes />} />
           <Route path="/admin/consultas"        element={<AdminConsultas />} />
-
+<Route path="/admin/destacados" element={<AdminMiembrosDestacados />} />
           {/* ── 404 ── */}
           <Route path="*" element={<NotFound />} />
         </Routes>
