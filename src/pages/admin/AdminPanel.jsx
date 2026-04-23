@@ -10,6 +10,7 @@ const modules = [
   { href:'/admin/solicitudes', icon:'🌐', title:'Solicitudes externas', desc:'Revisar peticiones de REDMUN y otras organizaciones' },
   { href:'/admin/consultas',   icon:'✉️', title:'Consultas', desc:'Mensajes recibidos desde el formulario de contacto' },
   { href:'/admin/destacados',  icon:'⭐', title:'Miembros Destacados', desc:'Gestionar la sección de miembros destacados del sitio web' },
+  { href:'/admin/galeria',     icon:'🖼️', title:'Galería', desc:'Agregar, editar o eliminar imágenes de la galería pública' },
 ]
 
 export default function AdminPanel() {
