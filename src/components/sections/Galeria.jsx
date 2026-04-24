@@ -42,7 +42,7 @@ export default function Galeria() {
         ) : (
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(300px,1fr))', gap:14 }}>
             {imagenes.map((img) => (
-              <div key={img.id} className="reveal" style={{ background:'#132A1E', border:'1px solid rgba(60,174,120,.13)', borderRadius:14, overflow:'hidden', transition:'all .3s' }}
+              <div key={img.id} style={{ background:'#132A1E', border:'1px solid rgba(60,174,120,.13)', borderRadius:14, overflow:'hidden', transition:'all .3s' }}
                 onMouseEnter={e=>{e.currentTarget.style.borderColor='rgba(60,174,120,.3)';e.currentTarget.style.transform='translateY(-3px)'}}
                 onMouseLeave={e=>{e.currentTarget.style.borderColor='rgba(60,174,120,.13)';e.currentTarget.style.transform='none'}}>
                 <img 
